@@ -1,0 +1,123 @@
+<apex:page showHeader="true" standardController="account" extensions="convertintoPDF" action="{!getpdf}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title></title>
+<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+
+</head>
+<body>
+
+<div id="outer-wrapper">
+<div id="wrapper">
+<div id="nav">
+<ul>
+<li><a href="/apex/testimage"><span>01</span>MOVIES ON FLOOR</a></li>
+<li><a href="http://www.freewebsitetemplates.com"><span>02</span>TRAILERS </a></li>
+<li><a href="http://www.freewebsitetemplates.com"><span>03</span>REGISTER</a></li>
+<li><a href="http://www.freewebsitetemplates.com"><span>04</span>ADMIN</a></li>
+<li><a href="http://www.freewebsitetemplates.com"><span>05</span> CONTACTS</a></li>
+</ul>
+</div>
+<div id="topcon">
+<div id="topcon-inner">
+<h2>Welcome to eNSTA-BOOKING</h2>
+<p>Don't forget to check <a href="http://www.freewebsitetemplates.com">free website templates</a> every day, because we add a new free website template almost daily.</p><p>You can remove any link to our websites from this template you're free to use the template without linking back to us.</p>
+
+</div>
+</div>
+<div id="content">
+<div id="body">
+<div class="box" id="news">
+<div class="box-t"><div class="box-r"><div class="box-b"><div class="box-l">
+<div class="box-tr"><div class="box-br"><div class="box-bl"><div class="box-tl">
+<h2>NEWS &amp; EVENTS</h2>
+<h3>05.03.2007</h3>
+<p>Even more websites all about website templates on <a href="http://www.justwebtemplates.com">Just Web Templates</a>.</p>
+<p> incude text here</p>
+<div class="hr-yellow"> </div>
+<h3>05.03.2007</h3>
+<p>If you're looking for beautiful and professionally made templates you can find them at <a href="http://www.templatebeauty.com">Template Beauty</a>.</p>
+<p>If you're having problems editing the template please don't hesitate to ask for help on <a href="http://www.freewebsitetemplates.com/forum/">the forum</a>.</p>
+<p> write text here</p>
+</div></div></div></div>
+</div></div></div></div>
+</div>
+<div class="box" id="hits">
+<div class="box-t"><div class="box-r"><div class="box-b"><div class="box-l">
+<div class="box-tr"><div class="box-br"><div class="box-bl"><div class="box-tl">
+<h2>MUST WATCH</h2>
+<h3>movie hits</h3>
+<div class="right">
+
+</div>
+<ul>
+<li><a href="http://www.freewebsitetemplates.com">Lorem ipsum dolor s........</a></li>
+<li><a href="http://www.freewebsitetemplates.com">Vivamus lobortis p........ </a></li>
+<li><a href="http://www.freewebsitetemplates.com">Sit amet, consectetu.......</a></li>
+<li><a href="http://www.freewebsitetemplates.com">Lorem ipsum dolor s........</a></li>
+<li><a href="http://www.freewebsitetemplates.com">Vivamus lobortis p........ </a></li>
+</ul>
+
+<div class="hr-yellow"> </div>
+
+<h3>TOP 5 SONGS</h3>
+<div class="right">
+
+</div>
+<ul>
+<li><a href="http://www.freewebsitetemplates.com">Vivamus lobortis p........ </a></li>
+<li><a href="http://www.freewebsitetemplates.com">Lorem ipsum dolor s........</a></li>
+<li><a href="http://www.freewebsitetemplates.com">Vivamus lobortis p........ </a></li>
+<li><a href="http://www.freewebsitetemplates.com">Sit amet, consectetu.......</a></li>
+</ul>
+
+</div></div></div></div>
+</div></div></div></div>
+</div>
+<div class="box" id="new">
+<div class="box-t"><div class="box-r"><div class="box-b"><div class="box-l">
+<div class="box-tr"><div class="box-br"><div class="box-bl"><div class="box-tl">
+<h2>NEW RELEASES</h2>
+
+<h3>eestas sed</h3>
+<div class="right">
+
+</div>
+
+<p>porta vel, nulla. Maecenas condi- mentum sollicitu</p>
+
+<h3>Maecenas</h3>
+<div class="right">
+
+</div>
+<p>ndimentum sollicitudin quam. Sed convallis</p>
+
+<h3>sollicitudin</h3>
+<div class="right">
+
+</div>
+
+<p>quam. Sed nvallis lacus .vallislacus arcu.vallis</p>
+
+</div></div></div></div>
+</div></div></div></div>
+</div>
+<div class="clear"> </div>
+</div>
+<div id="footer">
+<ul>
+<li><a href="">PICTURE</a> | </li>
+<li><a href="">GALLERY</a> | </li>
+<li><a href="">FREE MUSIC</a> | </li>
+<li><a href="">FEATURES</a> | </li>
+<li><a href="">CONTACTS</a> | </li>
+</ul>
+<p>&copy; Business Co <a href="http://www.freewebsitetemplates.com">Privacy Policy</a> | <a href="http://www.freewebsitetemplates.com">Terms of Use</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+
+</apex:page>

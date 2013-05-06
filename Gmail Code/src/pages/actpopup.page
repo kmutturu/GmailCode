@@ -1,0 +1,17 @@
+<apex:page standardController="account" recordSetVar="accounts">
+
+<script>
+function conme(item){
+    //alert(item);
+    var x = 'https://c.ap1.visual.force.com/'+item;
+    window.open(x);
+}
+</script>
+ <apex:form >
+     <apex:pageBlock >
+         <apex:pageBlockTable value="{!accounts}" var="a" rows="5">
+             <apex:column value="{!a.name}" onmouseover="conme('{!a.id}');"/>
+         </apex:pageBlockTable>
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

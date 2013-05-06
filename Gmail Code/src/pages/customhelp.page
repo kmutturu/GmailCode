@@ -1,0 +1,39 @@
+<apex:page >
+  <style>
+a:hover {
+background:#ffffff;
+text-decoration:none;
+} /*BG color is a must for IE6*/
+
+
+a.tooltip span {
+display:none;
+padding:2px 3px;
+margin-left:8px;
+width:130px;
+}
+
+
+a.tooltip:hover span{
+display:inline;
+position:absolute; 
+background:#ffffff;
+border:1px solid #cccccc;
+color:#6c6c6c;
+}
+</style>
+<style media="print">
+.hide{
+display:none;
+}
+</style>
+
+<div class="hide">
+some contents to be hidden
+</div>
+
+<a class="tooltip" href="#">
+<apex:image value="{!$Resource.cancel}" style="color:blue;background-color:red"/>
+<span>{!$ObjectType.Account.Fields.Active__c.inlineHelpText}.</span>
+</a> 
+</apex:page>

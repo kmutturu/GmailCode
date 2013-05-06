@@ -1,0 +1,64 @@
+<apex:page controller="awduplicate.AWControllerFuzzySearch" title="{!$Label.fuzzysearch}" action="{!AddUsage}">
+<apex:sectionHeader title="{!$Label.fuzzysearch}" help="http://bit.ly/qXzXQe"/> 
+<apex:messages />
+    <apex:form >   
+    <apex:pageBlock title="{!$Label.input}">
+       
+        <table class="detailList" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td class="labelCol">{!$Label.company}</td>
+                <td class="dataCol col02" colspan="3"><apex:inputText value="{!CompanyName}" maxlength="30" size="20"  /></td>
+            </tr>
+            <tr>
+                <td class="labelCol">{!$Label.firstname}</td>
+                <td class="dataCol col02"><apex:inputText value="{!FirstName}" maxlength="30" size="20" /></td>
+                <td class="labelCol">{!$Label.lastname}</td>
+                <td class="dataCol col02"><apex:inputText value="{!LastName}" maxlength="30" size="20" /></td>
+            </tr>
+            <tr>
+                <td class="labelCol">{!$Label.city}</td>
+                <td class="dataCol col02" colspan="3"><apex:inputText value="{!City}" maxlength="30" size="20"  /></td>
+            </tr>
+            <tr>
+                <td class="labelCol" colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="labelCol">{!$Label.searchleads}</td>
+                <td class="dataCol col02" colspan="3"><apex:inputCheckbox value="{!srchLead}"/></td>
+            </tr>
+        </table>
+   
+      <apex:pageBlockButtons >
+                <apex:commandButton action="{!ExecSearch}" value="{!$Label.search}"/> 
+            </apex:pageBlockButtons>   
+    </apex:pageBlock>
+    
+    </apex:form> 
+    
+    <apex:pageBlock title="{!$Label.leads}" rendered="{!srchLead}">
+        <apex:pageBlockTable value="{!resLead}" var="srchres">
+            <apex:column headerValue="{!$Label.score}"><a href="/{!srchres.DupId}">{!srchres.DupScore}</a></apex:column>
+            <apex:column headerValue="{!$Label.name}"><a href="/{!srchres.DupId}">{!srchres.DupName}</a></apex:column>
+            <apex:column headerValue="{!$Label.city}"><a href="/{!srchres.DupId}">{!srchres.DupCity}</a></apex:column>
+            <apex:column headerValue="{!$Label.phone}"><a href="/{!srchres.DupId}">{!srchres.DupPhone}</a></apex:column>
+        </apex:pageBlockTable> 
+    </apex:pageBlock>
+    <apex:pageBlock title="{!$Label.contacts}">
+        <apex:pageBlockTable value="{!resContact}" var="srchres">
+            <apex:column headerValue="{!$Label.score}"><a href="/{!srchres.DupId}">{!srchres.DupScore}</a></apex:column>
+            <apex:column headerValue="{!$Label.name}"><a href="/{!srchres.DupId}">{!srchres.DupName}</a></apex:column>
+            <apex:column headerValue="{!$Label.city}"><a href="/{!srchres.DupId}">{!srchres.DupCity}</a></apex:column>
+            <apex:column headerValue="{!$Label.phone}"><a href="/{!srchres.DupId}">{!srchres.DupPhone}</a></apex:column>
+        </apex:pageBlockTable> 
+    </apex:pageBlock>
+    <apex:pageBlock title="{!$Label.accounts}">
+        <apex:pageBlockTable value="{!resAccount}" var="srchres">
+            <apex:column headerValue="{!$Label.score}"><a href="/{!srchres.DupId}">{!srchres.DupScore}</a></apex:column>
+            <apex:column headerValue="{!$Label.name}"><a href="/{!srchres.DupId}">{!srchres.DupName}</a></apex:column>
+            <apex:column headerValue="{!$Label.city}"><a href="/{!srchres.DupId}">{!srchres.DupCity}</a></apex:column>
+            <apex:column headerValue="{!$Label.phone}"><a href="/{!srchres.DupId}">{!srchres.DupPhone}</a></apex:column>
+        </apex:pageBlockTable> 
+    </apex:pageBlock>
+    
+      
+</apex:page>

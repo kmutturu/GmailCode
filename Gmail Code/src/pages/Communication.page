@@ -1,0 +1,12 @@
+<apex:page controller="Communication">
+{!strVal}
+<apex:form >
+		<apex:pageBlock title="list of accounts">
+			<apex:selectCheckBoxes layout="pagedirection" value="{!strId}">
+				<apex:selectOptions value="{!account}" />
+			</apex:selectCheckBoxes>
+		</apex:pageBlock>
+		<apex:PageMessages />
+		<apex:commandButton value="save" action="{!saveme}" />
+	</apex:form>
+</apex:page>

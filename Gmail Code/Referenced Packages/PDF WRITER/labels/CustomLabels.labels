@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Letter_Add</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Add</shortDescription>
+        <value>Hinzufügen</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Back</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Back</shortDescription>
+        <value>Zurück</value>
+    </labels>
+    <labels>
+        <fullName>Letter_BodyHelp</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_BodyHelp</shortDescription>
+        <value>Hier können Sie ihren Brieftext eingeben und einen oder mehrere Textbausteine in das Feld hinzufügen.</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Error1</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Error1</shortDescription>
+        <value>Es ist kein PDF-Template vorhanden. Bitte legen Sie dieses entsprechend der Dokumentation an.</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Error2</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Error2</shortDescription>
+        <value>Es ist kein Stylesheet für das PDF-Template vorhanden. Bitte legen Sie dieses entsprechend der Dokumentation an.</value>
+    </labels>
+    <labels>
+        <fullName>Letter_FolderId</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_FolderId</shortDescription>
+        <value>Ungültige Ordner ID. Bitte geben Sie eine valide Ordner ID in den benutzerdefinierten Einstellungen ein.</value>
+    </labels>
+    <labels>
+        <fullName>Letter_FooterTextHelp</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_FooterTextHelp</shortDescription>
+        <value>Hier können Sie einen PS-Text oder einen Textbaustein in das Feld hinzufügen.</value>
+    </labels>
+    <labels>
+        <fullName>Letter_IdError</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_IdError</shortDescription>
+        <value>Die ID enthält keine gültige Datensatz Id!</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Save</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Save</shortDescription>
+        <value>PDF speichern &amp; beenden</value>
+    </labels>
+    <labels>
+        <fullName>Letter_SendEmail</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_SendEmail</shortDescription>
+        <value>Als E-Mail versenden</value>
+    </labels>
+    <labels>
+        <fullName>Letter_ShowPDF</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_ShowPDF</shortDescription>
+        <value>PDF ausgeben</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Subtitle</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Subtitle</shortDescription>
+        <value>Neuer Brief</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Title</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Title</shortDescription>
+        <value>Brief bearbeiten</value>
+    </labels>
+    <labels>
+        <fullName>Letter_Wait</fullName>
+        <language>de</language>
+        <protected>true</protected>
+        <shortDescription>Letter_Wait</shortDescription>
+        <value>Bitte warten!
+Das PDF wird generiert.</value>
+    </labels>
+</CustomLabels>

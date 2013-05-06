@@ -1,0 +1,42 @@
+<apex:component >
+<apex:includeScript value="{!$Resource.dockmin}"/>
+<apex:includeScript value="{!$Resource.dockjs}"/>
+<apex:includeScript value="{!$Resource.jquery}"/>
+
+<style>
+/*position and hide the menu initially - leave room for menu items to expand...*/
+#page {padding-top:200px; padding-bottom:20px; width:100%;}
+#menu {position:absolute; top:80; left:0; width:100%; display:none;}
+/*dock styling...*/
+/*...centre the dock...*/
+#menu div.jqDockWrap {margin:0 auto;}
+/*...set the cursor...*/
+#menu div.jqDock {cursor:pointer;}
+/*label styling...*/
+div.jqDockLabel {font-weight:bold; font-style:italic; white-space:nowrap; color:#000; cursor:pointer;}
+</style>
+
+<script>
+jQuery(document).ready(function($){
+  // set up the options to be used for jqDock...
+  var dockOptions =
+    { align: 'justify' // horizontal menu, with expansion DOWN from a fixed TOP edge
+    , labels: true  // add labels (defaults to 'bc')
+    };
+  // ...and apply...
+  $('#menu').jqDock(dockOptions);
+});
+
+function setFrame(sr){
+    fire(sr);
+}
+</script>
+<div id='menu'>
+  
+  <img src="{!URLFOR($Resource.home)}" title='Home' alt='' onClick="setFrame('home')"/>
+  <img src="{!URLFOR($Resource.singlesms)}" title='Single SMS' alt='' onClick="setFrame('singlesms')"/>
+  <img src="{!URLFOR($Resource.bulksms)}" title='Bulk SMS' alt='' onClick="setFrame('bulksms')"/>
+  <img src="{!URLFOR($Resource.settings)}" title='Gateway' alt='' onClick="setFrame('gateway')"/>
+  <img src="{!URLFOR($Resource.checklist)}" title='Check List' alt='' onClick="setFrame('checklist')"/>
+</div>
+</apex:component>

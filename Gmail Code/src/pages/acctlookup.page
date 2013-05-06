@@ -1,0 +1,6 @@
+<apex:page standardController="contact" extensions="actlok">
+ <apex:form >
+     <apex:inputField value="{!contact.lastname}"/>
+     <apex:commandButton action="{!clicke}" value="save"/>
+ </apex:form>
+</apex:page>

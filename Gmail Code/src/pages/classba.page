@@ -1,0 +1,22 @@
+<apex:page controller="classba" sidebar="false">
+<apex:form >
+<apex:inputText value="{!accName}"/>
+<apex:commandButton value="search" action="{!showcontacts}"/>
+<apex:actionstatus id="mystatus" starttext="please wait it is loading contacts.......">
+<apex:facet name="stop">
+<apex:outputpanel id="out">
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:pageBlockTable value="{!conRecords}" var="c">
+<apex:column headerValue="Contacts">
+{!c.Name}
+</apex:column>
+<apex:column headerValue="Phone" value="{!c.phone}"/>
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:outputpanel>
+</apex:facet>
+</apex:actionstatus>
+</apex:form>
+</apex:page>

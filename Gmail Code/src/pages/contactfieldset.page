@@ -1,0 +1,8 @@
+<apex:page standardController="Contact">
+<apex:repeat value="{!$ObjectType.Contact.FieldSets.AccountsAndContactsEdit}" var="f">
+{!$ObjectType.Contact.Fields[f].label}
+({!$ObjectType.Contact.Fields[f].type}):
+<apex:outputField value="{!Contact[f]}"/>
+<br/>
+</apex:repeat>
+</apex:page>

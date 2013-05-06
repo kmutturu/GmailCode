@@ -1,0 +1,5 @@
+<apex:page standardcontroller="Account" id="mypage">
+<apex:form id="myform">
+<apex:inputText styleClass="cssbody"  size="10" id="demo" onfocus="DatePicker.pickDate(false, 'myPage:myForm:demo', false);" />
+</apex:form>
+</apex:page>

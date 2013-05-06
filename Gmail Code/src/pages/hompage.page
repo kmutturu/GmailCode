@@ -1,0 +1,17 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="true" setup="true"> 
+<head>
+</head>
+<body>
+<br/><br/><br/><br/><table border="3"><tr><td>
+CONFIDENTIALITY AND RESTRICTED USE NOTICE
+<br/><br/>
+ 
+<center><button ONCLICK="window.location.href='https://kiranmutturu-developer-edition.my.salesforce.com/home/home.jsp?val=yess'"> I ACCEPT THE TERMS AND CONDITIONS </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+<button ONCLICK="window.location.href='https://eu1.salesforce.com/secur/logout.jsp'"> I DO NOT ACCEPT THE ABOVE TERMS AND CONDITIONS</button> </center>
+ 
+</td></tr></table>
+ 
+ 
+</body>
+</apex:page>

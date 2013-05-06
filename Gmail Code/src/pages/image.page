@@ -1,0 +1,5 @@
+<apex:page >
+ <apex:form >-
+     <apex:image value="{!$Resource.myimage}" height="500"/>
+ </apex:form>
+ </apex:page>

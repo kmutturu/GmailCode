@@ -1,0 +1,5 @@
+<apex:page standardStylesheets="true">
+  <td class="pbButton">
+ <input value="New Meeting Request" class="btn" name="newproposemeeting" onclick="navigateToUrl('javascript:void%28SchedulingProposeMeeting.openAskForMeetingDialog%28%27%2Fscheduling%2FcreateMeeting.apexp%3FonHome%3Dtrue%27%2C%20false%2C%20877%29%29%3B',null,'newproposemeeting');" title="New Meeting Request" type="button"/>
+</td>
+</apex:page>

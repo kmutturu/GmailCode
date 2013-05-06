@@ -1,0 +1,9 @@
+<apex:page standardController="account">
+<apex:outputText escape="false" value="{!IF(account.name!='HPE2',
+'{0}'&br()&'{0}',
+'1. Lorem ipsum dolor sit amet......' & '2. Sed accumsan dapibus dolor....' & '3. Integer ac urna quam....'
+)}
+">
+<apex:param value="1. Loor sit amet...... \n 2. Sed accumsan dapibus dolor.... & 3. Integer ac urna quam...."/>
+
+</apex:outputText> </apex:page>

@@ -1,0 +1,3 @@
+<apex:page standardController="awduplicate__DedupPos__c" extensions="awduplicate.AWControllerMerge" Title="Duplicate Record View" tabStyle="AWFuzzySearch__tab" action="{!AddUsage}">
+
+</apex:page>

@@ -1,0 +1,17 @@
+<apex:page controller="selectcomp">
+    <apex:form >
+        <apex:selectradio value="{!radioval}" layout="pageDirection">
+        
+            <apex:selectOptions value="{!Results}"></apex:selectOptions>
+        </apex:selectradio>
+    
+    <apex:commandButton action="{!doit}" value="select" reRender="op"/>
+    </apex:form>
+    <apex:outputPanel id="op">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!selectedval}" var="a">
+            <apex:column value="{!a}"/>
+        </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:outputPanel>
+</apex:page>

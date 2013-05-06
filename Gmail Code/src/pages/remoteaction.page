@@ -1,0 +1,22 @@
+<apex:page controller="AccountView">
+    {!acc.name}
+    <div onclick="changeAccountName('Test 123');">Click me </div>
+    <script>
+    function changeAccountName(Name ) {
+            
+            // Here I am passing two value Id and TobeupdatedName
+            alert(document.getElementById('{$component.hd}').value());
+            AccountView.changeAccountName( '{!$CurrentPage.parameters.Id}', '{$component.hd}', function(result, event)
+            {
+                
+                if (event.status)
+                {
+                    alert('Successfully !!!!');
+                }
+            }, {escape:true});
+        }
+</script>
+<apex:form >
+<apex:inputHidden id="hd" value="{!acc}"/>
+</apex:form>
+</apex:page>

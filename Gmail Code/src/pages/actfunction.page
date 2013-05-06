@@ -1,0 +1,8 @@
+<apex:page controller="actionfun">
+  <apex:form >
+      <apex:actionFunction action="{!call}" name="hold"/>
+  </apex:form>
+  <script>
+  hold();
+  </script>
+</apex:page>

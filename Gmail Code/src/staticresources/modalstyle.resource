@@ -1,0 +1,24 @@
+.backgrounddiv
+{
+      position:absolute;
+      left:0;
+      top:0;
+      z-index:9000;
+      background-color:#000;
+      display:none;
+}
+.testdiv
+{
+      position:absolute;
+      left:0;
+      top:0;
+      background-color:white;
+      border-style:solid;
+      border-width:thin;
+      text-align:center;
+      width:300px;
+      height:50px;
+      display:none;
+      z-index:9999;
+      padding:20px;
+}

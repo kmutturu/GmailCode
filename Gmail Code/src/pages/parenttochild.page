@@ -1,0 +1,13 @@
+<apex:page controller="parenttochild" >
+
+<apex:form >
+
+Name: <apex:inputtext value="{!strname}"/>
+<apex:commandButton value="Save and Go to child record Page" action="{!save}"/>
+
+</apex:form>
+
+      
+
+ 
+</apex:page>

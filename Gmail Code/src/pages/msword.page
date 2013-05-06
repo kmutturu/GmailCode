@@ -1,0 +1,4 @@
+<apex:page standardController="account" showheader="false" contentType="application/msWord" cache="true">
+
+hi this is my test page
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page standardController="Unit_code__c" renderAs="pdf" recordSetVar="unitcodes">
+
+
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!unitcodes}" var="z">
+            <apex:column value="{!z.Rich__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+
+</apex:form>
+ 
+</apex:page>

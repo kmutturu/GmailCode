@@ -1,0 +1,7 @@
+<apex:page standardController="account">
+
+<apex:form >
+    <apex:inputField value="{!account.Sales_Organization__c}"/>
+</apex:form>
+  
+</apex:page>

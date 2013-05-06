@@ -1,0 +1,12 @@
+<apex:page standardController="Opportunity">
+  <apex:form >
+    <script type="text/javascript">
+        if(("{!Opportunity.Account.type }"=="Inactive" ) ){
+            alert( 'You do not have sufficient rights to Create / Update an Opportunity against an Inactive Account. Please contact Customer Data Team for any assistance.');
+            window.parent.location.href ="{!URLFOR($Action.Opportunity.View , Opportunity.Id, null, true)}";
+        }
+        else
+            window.parent.location.href ="{!URLFOR($Action.Opportunity.New,Opportunity.Id,[saveURL='/apex/OpportunityProducts?requestFlag=', retURL=URLFOR('$Request.retURL',null,null,true)],True) }"
+    </script>
+  </apex:form>
+</apex:page>

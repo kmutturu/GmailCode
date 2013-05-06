@@ -1,0 +1,37 @@
+<apex:page standardController="Contact" extensions="awduplicate.AWControllerDupCheckContact" action="{!AddUsage}">
+    <apex:messages />
+    <apex:detail relatedList="false" inlineEdit="false" showChatter="false" relatedListHover="false" rendered="{!isValidLicense}"/>
+    <apex:pageBlock title="{!$Label.invalidlicense}" rendered="{!NOT(isValidLicense)}">
+		{!$Label.youarenotlicensedtousethisfeaturepleasec}
+	</apex:pageBlock> 
+
+    <apex:form >
+        <apex:pageBlock title="{!$Label.duplicatecontacts}" rendered="{!isValidLicense}"> 
+            <apex:pageBlockButtons location="top" rendered="{!DupeFound}"> 
+                <apex:commandButton action="{!GotoMerge}" value="{!$Label.mergeselection}" /> 
+            </apex:pageBlockButtons> 
+            <apex:outputText rendered="{!NOT(DupeFound)}" value="{!$Label.noduplicatesfound}"/>
+            <apex:pageBlockTable value="{!SearchResults}" var="srchres" rendered="{!DupeFound}">
+                <apex:column headerValue="#"><apex:inputCheckbox value="{!srchres.DupSelected}"/></apex:column>
+                <apex:column headerValue="{!$Label.score}"><a href="/{!srchres.DupId}">{!srchres.DupScore}</a></apex:column>
+                <apex:column headerValue="{!$Label.name}"><a href="/{!srchres.DupId}">{!srchres.DupName}</a></apex:column>
+                <apex:column headerValue="{!$Label.city}"><a href="/{!srchres.DupId}">{!srchres.DupCity}</a></apex:column>
+                <apex:column headerValue="{!$Label.phone}"><a href="/{!srchres.DupId}">{!srchres.DupPhone}</a></apex:column>
+            </apex:pageBlockTable> 
+        </apex:pageBlock>
+    </apex:form>
+    <apex:form >
+    	<apex:pageBlock title="{!$Label.duplicateleads}" rendered="{!isValidLicense}">
+    		<apex:pageBlockButtons location="top"> 
+                <apex:commandButton action="{!SearchLeads}" value="{!$Label.searchforduplicateleads}" /> 
+            </apex:pageBlockButtons> 
+    		<apex:outputText rendered="{!NOT(DupeFoundLd)}" value="{!$Label.noduplicatesfound}"/>
+	    	<apex:pageBlockTable value="{!SearchResultsLd}" var="srchres" rendered="{!DupeFoundLd}">
+	    		<apex:column headerValue="{!$Label.score}"><a href="/{!srchres.DupId}">{!srchres.DupScore}</a></apex:column>
+                <apex:column headerValue="{!$Label.name}"><a href="/{!srchres.DupId}">{!srchres.DupName}</a></apex:column>
+                <apex:column headerValue="{!$Label.city}"><a href="/{!srchres.DupId}">{!srchres.DupCity}</a></apex:column>
+                <apex:column headerValue="{!$Label.phone}"><a href="/{!srchres.DupId}">{!srchres.DupPhone}</a></apex:column>
+	        </apex:pageBlockTable> 
+    	</apex:pageBlock>
+    </apex:form>
+</apex:page>

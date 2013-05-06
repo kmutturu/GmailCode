@@ -1,0 +1,12 @@
+<apex:page controller="createcontact">
+
+    <apex:form >
+        <apex:pageBlock >
+           Contact Name: <apex:inputText value="{!conval}"/>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!CreateContact}" value="Create Contact" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+  
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="pdfw.LetterCtr" renderAs="PDF" >
+	<head>
+		<style type="text/css"> 
+			<apex:outputText value="{!a_HtmlStyleSheet}" escape="false" />
+		</style>
+	</head>
+	<body>
+		<apex:repeat value="{!a_HtmlTemplate}" var="a">
+			<apex:outputText value="{!a}" escape="false" />
+		</apex:repeat>
+	</body>
+</apex:page>

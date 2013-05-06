@@ -1,0 +1,16 @@
+<apex:component controller="EnhancedDatePickerController" allowDML="true" >
+    
+      <apex:attribute name="pageController" 
+          type="PageControllerBase" 
+          assignTo="{!pageController}"   
+          required="true" 
+          description="The controller for the page." />
+          
+    <apex:attribute name="object" description="This is the object" type="SObject" required="false" assignTo="{!myObject}" />
+    <apex:attribute name="fieldName" description="This is the field name" type="String" required="true" assignTo="{!fieldName}" />
+
+    {!onLoad}
+    
+    <apex:inputText styleClass="DP{!fieldName}" value="{!myValueHolder}" />
+  
+</apex:component>

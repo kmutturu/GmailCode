@@ -1,0 +1,20 @@
+<apex:page controller="selectlist">
+  <apex:form >
+      <apex:selectList value="{!Accts}" multiselect="false" size="1">
+          <apex:actionSupport event="onchange" reRender="op" action="{!savee}"/>    
+          <apex:selectOptions value="{!option}">
+          </apex:selectOptions>
+      </apex:selectList>
+      </apex:form>
+      <apex:outputPanel id="op">
+          <script>
+              alert('hai');
+          </script>
+          <apex:pageBlock >
+              <apex:pageBlockTable value="{!Accts}" var="a">
+                  <apex:column value="{!a}"/>
+              </apex:pageBlockTable>
+          </apex:pageBlock>
+      </apex:outputPanel>
+  
+</apex:page>

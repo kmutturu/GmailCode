@@ -1,0 +1,43 @@
+<apex:page standardController="lead" extensions="testcomplete">
+  <apex:form >
+  
+  <apex:inputField id="id1" value="{!lead.NumberofLocations__c}"/>
+  
+<!--  <apex:inputField id="id2" value="{!lead.Total_Activites__c}" onblur="fix(document.getElementById('{!$component.id1}').value,this.value)"/>-->
+  
+  <apex:inputField id="id3" value="{!lead.NumberOfEmployees}" />
+  
+  
+  <apex:commandButton action="{!saveme}" reRender="op" value="test" />
+  
+  <script>
+  
+  function fix(var1,var2){
+    alert(var1+"****"+var2);
+    document.getElementById('{!$Component.id3}').value = var1 * var2;
+  
+  }
+  
+  
+  </script>
+  
+  <apex:outputPanel id="op" >
+  
+  <apex:pageBlock >
+  
+ 
+  <apex:pageBlockTable value="{!lstaccount}" var="a">
+  
+  <apex:column value="{!a.name}"/>
+  
+  
+  </apex:pageBlockTable>
+  
+  
+  
+  </apex:pageBlock>
+  
+  </apex:outputPanel>
+  
+  </apex:form>
+</apex:page>

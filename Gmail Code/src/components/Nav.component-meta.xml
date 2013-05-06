@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>24.0</apiVersion>
+    <description>This component allows the rendition of navigation controls for a mobile app. Must be used inside an App component along with the PageTemplate.</description>
+    <label>Nav</label>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>10</minorNumber>
+        <namespace>BG_SMS</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>72</minorNumber>
+        <namespace>OBJCNVTR</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>73</minorNumber>
+        <namespace>SFSSDupeCatcher</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>1</minorNumber>
+        <namespace>Slabs_ac</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>20</minorNumber>
+        <namespace>awduplicate</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>3</minorNumber>
+        <namespace>dynl</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>13</minorNumber>
+        <namespace>pdfw</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>1</minorNumber>
+        <namespace>vfgenerator</namespace>
+    </packageVersions>
+</ApexComponent>

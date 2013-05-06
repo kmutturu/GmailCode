@@ -1,0 +1,20 @@
+<apex:page standardController="account" recordsetvar="accounts">
+    <apex:form >
+        <apex:pageBlock title="List of Accounts">
+            <apex:pageblocksection >
+                <apex:pageblockTable border="1" value="{!accounts}" var="a" rows="10">
+                    <apex:column >
+               <a href="#"> {!a.name}</a>
+                <apex:actionSupport event="onclick" rerender="op">
+                            <apex:param name="aid" value="{!a.id}" />
+                        </apex:actionSupport>
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:pageblocksection>
+        </apex:pageBlock>
+        <apex:outputpanel id="op">
+            <apex:detail subject="{!$CurrentPage.parameters.aid}"
+                relatedList="true" />
+        </apex:outputpanel>
+    </apex:form>
+</apex:page>

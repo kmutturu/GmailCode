@@ -1,0 +1,7 @@
+<apex:page controller="Repeat10kTestController" sidebar="false">
+  <apex:sectionHeader title="Iterating 10,000 items in Visualforce"/>
+
+  <c:repeat10k collection="{!integers}" var="val" >
+     <apex:outputText value="{!val}"/> &nbsp;
+  </c:repeat10k>  
+</apex:page>

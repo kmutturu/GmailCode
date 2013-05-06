@@ -1,0 +1,9 @@
+<apex:page standardController="lead" >
+<apex:pageMessages />
+<apex:form >
+    <apex:pageBlock mode="edit">
+<apex:detail subject="{!lead.id}" relatedList="false" title="false"/> 
+    </apex:pageBlock>
+</apex:form>
+
+</apex:page>

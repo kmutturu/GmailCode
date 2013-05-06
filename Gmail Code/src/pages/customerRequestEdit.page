@@ -1,0 +1,60 @@
+<apex:page standardController="Customer_Request__c">
+    
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.4.4.min.js')}"/>
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-ui-1.8.7.custom.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryFiles, 'css/ui-lightness/jquery-ui-1.8.7.custom.css')}"/>
+    
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+        
+        j$(document).ready(function(){
+            j$("#revenueSlider").slider({
+                min: 0,
+                max: 100000,
+                step: 1000,
+                slide: function(event, ui){
+                    j$("#revenueSlider").next().val(ui.value);
+                },
+                value: {!IF(ISNULL(Customer_Request__c.Potential_Revenue__c),0,Customer_Request__c.Potential_Revenue__c)}
+            });
+        });
+    </script>       
+
+    <apex:sectionHeader title="Customer Request Edit" subtitle="{!Customer_Request__c.Name}"/>
+    
+    <apex:form >
+        <apex:pageBlock title="Customer Request Edit" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1" title="Information">
+                <apex:outputField value="{!Customer_Request__c.Name}"/>
+                <apex:inputField value="{!Customer_Request__c.Account__c}"/>
+                <apex:inputField value="{!Customer_Request__c.Subject__c}"/>
+                <apex:inputField value="{!Customer_Request__c.Type__c}"/>
+                <apex:inputField value="{!Customer_Request__c.Priority__c}"/>
+                <apex:inputField value="{!Customer_Request__c.Product_Specialist__c}"/>
+                <apex:inputField value="{!Customer_Request__c.Description__c}"/>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Revenue"/>
+                    <apex:outputPanel >
+                        <div id="revenueSlider"></div>
+                        <apex:inputField value="{!Customer_Request__c.Potential_Revenue__c}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <style>
+        #revenueSlider{
+            width: 35%;
+            background: white;
+            margin-bottom: 5px;
+        }
+    </style>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page controller="pdfw.LetterDocDelete" action="{!returnToObj}" showHeader="false">
+	<apex:form >
+	 
+	</apex:form>
+</apex:page>

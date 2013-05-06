@@ -1,0 +1,7 @@
+<apex:page standardController="Stockset__c"> 
+ <link rel='stylesheet' href='calendar.css' title='calendar'/>
+<script language="javascript" src="calendar.js"></script>
+ 
+<input name='txtCalendar' id='idCalendar' class='inputBoxStyle'/>
+<img src='cal.gif' align='absmiddle' onmouseover="fnInitCalendar(this, 'idCalendar')"/>
+</apex:page>

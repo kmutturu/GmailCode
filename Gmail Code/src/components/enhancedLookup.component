@@ -1,0 +1,25 @@
+<apex:component controller="EnhancedLookupController" allowDML="true">
+
+    <apex:attribute name="pageController" 
+          type="PageControllerBase" 
+          assignTo="{!pageController}" 
+          required="true" 
+          description="The controller for the page." />
+    <apex:attribute name="object" description="This is the object" type="SObject" required="false" assignTo="{!myObject}" />
+    <apex:attribute name="fieldName" description="This is the field name" type="String" required="true" assignTo="{!fieldName}" />
+    <apex:attribute name="displayColumn" description="column to displayed from the object looked up (defaults to name)" type="String" required="false" assignTo="{!displayColumn}" />
+    <apex:attribute name="objectToLookup" description="name of object to find" type="String" required="true" assignTo="{!objectToLookup}" />
+    
+    <script type="text/javascript" src="{!URLFOR($Resource.JQAutocomplete11,'jquery-autocomplete/jquery.autocomplete.pack.js')}"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.JQAutocomplete11,'jquery-autocomplete/jquery.autocomplete.css')}"/>      
+    <apex:stylesheet value="{!URLFOR($Resource.JQAutocomplete11,'jquery-autocomplete/demo/main.css')}"/>
+
+    
+    
+    {!onLoad}
+    
+    <apex:inputText styleClass="L{!fieldname}" value="{!displayName}" />
+    <span class="S{!fieldname}"><apex:inputHidden value="{!myValueHolder}" /></span>
+           
+
+</apex:component>

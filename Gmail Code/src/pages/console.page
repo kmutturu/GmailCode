@@ -1,0 +1,9 @@
+<apex:page sidebar="false">
+  <apex:tabPanel >
+     <apex:tab label="Accounts" name="name1" id="tabOne">
+     
+       <apex:include pageName="MVC" />
+       </apex:tab>
+     <apex:tab label="One" name="name2" id="tabOne1">content for tab one</apex:tab>
+  </apex:tabPanel>
+</apex:page>

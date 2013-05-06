@@ -1,0 +1,21 @@
+<apex:page standardController="Case">
+<A HREF="#" onClick="testFocusPrimaryTabByName();return false">
+Click here to go to a primary tab by name</A>
+<apex:includeScript value="/support/console/22.0/integration.js"/>
+<script type="text/javascript">
+function testFocusPrimaryTabByName() {
+//Get the value for 'myPrimaryTab' from the openPrimaryTab method
+//This value is for example purposes only
+var primaryTabName = 'myPrimaryTab';
+sforce.console.focusPrimaryTabByName(case.id, focusSuccess);
+}
+var focusSuccess = function focusSuccess(result) {
+//Report whether going to the primary tab was successful
+if (result.success == true) {
+alert('Going to the primary tab was successful');
+} else {
+alert('Going to the Primary tab was not successful');
+}
+};
+</script>
+</apex:page>

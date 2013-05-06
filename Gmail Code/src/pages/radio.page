@@ -1,0 +1,9 @@
+<apex:page controller="sampleCon">
+    <apex:form >
+        Computers:    <apex:selectRadio value="{!country}">
+            <apex:selectOptions value="{!items}"/>
+            </apex:selectRadio><p/>
+     
+     </apex:form>
+     
+</apex:page>

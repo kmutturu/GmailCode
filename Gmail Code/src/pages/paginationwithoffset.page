@@ -1,0 +1,54 @@
+<apex:page controller="PaginationController" sidebar="false"> 
+    <apex:form id="theForm">
+        <br/>
+        <apex:outputPanel id="queryPanel">
+        <apex:pageBlock title="SOQL Query">
+            <apex:outputText value="{!query}" id="Query"/> <p/>
+                </apex:pageBlock>
+        <p/>
+        <apex:pageBlock title="Limit, Offset, Direction">
+        <apex:inputText value="{!queryLimit}" id="queryLimit"/>
+        <apex:inputText value="{!queryOffset}" id="queryOffset"/>
+        <apex:selectRadio value="{!direction}" id="direction">
+            <apex:actionSupport event="onchange" action="{!runQuery}" rerender="queryPanel,detail"/>
+            <apex:selectOptions value="{!Directions}"/>
+        </apex:selectRadio>
+        </apex:pageBlock>
+        <p/>
+
+        <apex:commandButton action="{!runQuery}" value="Run Query" id="theButton" rerender="queryPanel,detail"/>
+        <apex:commandButton action="{!runFirstQuery}" value="First" id="firstButton" rerender="queryPanel,detail"/>
+        <apex:commandButton action="{!runPrevQuery}" value="Prev" id="prevButton" disabled="{!disablePrevPage}" rerender="queryPanel,detail"/>
+        <apex:commandButton action="{!runNextQuery}" value="Next" id="nextButton" disabled="{!disableNextPage}" rerender="queryPanel,detail"/>
+        <apex:commandButton action="{!runLastQuery}" value="Last" id="lastButton" rerender="queryPanel,detail"/>
+        </apex:outputPanel> 
+                
+        <p/>
+        <apex:outputPanel id="detail">
+ 
+            <apex:pageBlock title="Details">
+            <apex:pageBlockTable value="{!page}" var="accounts" id="thePage">
+                <apex:column width="25%">
+                    <apex:facet name="header">Name</apex:facet>
+                    <apex:outputText value="{!accounts.name}"/>
+                </apex:column>                            
+                <apex:column width="25%">
+                    <apex:facet name="header">Industry</apex:facet>
+                    <apex:outputText value="{!accounts.industry}"/>
+                </apex:column>
+                <apex:column width="25%">
+                    <apex:facet name="header">Annual Revenue</apex:facet>
+                    <apex:outputText value="{0, number,$ 00,000,000}">
+                       <apex:param value="{!accounts.AnnualRevenue}" />
+                     </apex:outputText>
+                </apex:column>                            
+                <apex:column width="25%">
+                    <apex:facet name="header">Website</apex:facet>
+                    <apex:outputText value="{!accounts.Website}"/>
+                </apex:column>                            
+            </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel> 
+    
+    </apex:form>
+</apex:page>

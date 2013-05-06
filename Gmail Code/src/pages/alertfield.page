@@ -1,0 +1,25 @@
+<apex:page id="pg" standardController="account" >
+<script>
+  function AddCity() {
+    alert('Entered'+document.getElementById('{!$Component.mCity}'));
+    var mct = document.getElementById('{!$Component.mCity}').value;
+    alert (mct);   
+  }
+   
+</script>
+<apex:pageblock id="pb1" title="Group book legs">
+  <apex:form id="mForm" >
+    <apex:pageBlock id="pb2" title="Enter trip leg details">
+      <apex:pageblockSection columns="2">
+       
+          <apex:outputLabel value="Travelling to:"/>
+          <apex:outputPanel >
+             <apex:inputtext id="mCity" value="{!account.name}"  />  
+             <apex:commandButton value="Add" onclick="return AddCity();"/> 
+          </apex:outputPanel>
+    
+      </apex:pageblockSection>
+    </apex:pageBlock>      
+  </apex:form>
+  </apex:pageblock>
+</apex:page>

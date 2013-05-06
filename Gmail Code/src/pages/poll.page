@@ -1,0 +1,16 @@
+<apex:page id="thispage" controller="actionpoll">
+	<apex:form >
+		<apex:selectList value="{!selected}">
+			<apex:actionSupport event="onchange" action="{!all}" reRender="op" />
+			<apex:selectOptions value="{!values}" />
+
+		</apex:selectList>
+
+		<apex:actionStatus id="counterStatus" startText=" (incrementing...)"
+			stopText=" (done)" />
+		<apex:outputPanel id="op">
+			<apex:outputlabel value="-------{!SelText}-----" />
+		</apex:outputPanel>
+	</apex:form>
+
+</apex:page>

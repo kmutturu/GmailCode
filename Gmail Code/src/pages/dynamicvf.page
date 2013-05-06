@@ -1,0 +1,5 @@
+<apex:page standardController="Opportunity" extensions="dynamicclass">
+<apex:form >
+  <apex:dynamicComponent componentValue="{!myFieldSetSection}"/>
+  </apex:form>
+</apex:page>

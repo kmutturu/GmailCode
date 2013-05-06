@@ -1,0 +1,41 @@
+<apex:page controller="jDockController" >
+<apex:form style="height:1000px">
+
+<div align="right">
+<apex:image value="{!$Resource.Logo}" style="height:60px;width:150px"/>
+</div>  
+<br/><br/><br/><br/><br/>
+
+<style>
+   
+   .heading{
+      background-color:#CEF6F5;
+      text-align:center;
+  }
+  .data table,td,th {
+      font-weight:bold;
+      font-family:Calibri;
+      font-size:14px
+  }
+
+     
+</style>
+
+<div>
+<c:opensmscomp />
+</div>
+
+<apex:actionstatus startText="Loading..." startStyle="color:red;font-weight:bold;" id="st"></apex:actionstatus>
+      <center>
+  <apex:outputPanel id="outputarea">
+  <apex:outputText value="{!output}" escape="false"></apex:outputText>
+  </apex:outputPanel>
+  </center>
+      <apex:actionFunction action="{!fireQuery}" name="fire" reRender="outputarea" status="st">
+          <apex:param value="" name="a" assignTo="{!table}"/>
+      </apex:actionFunction>
+      
+     
+ </apex:form>
+ 
+</apex:page>

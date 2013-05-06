@@ -1,0 +1,14 @@
+<apex:page >
+ <script type="text/javascript">
+function myFunction()
+{
+
+ window.open ("https://www.google.com/","mywindow","menubar=1,resizable=1,width=800,height=900");
+    // not working
+   alert(window.location);
+}
+
+</script>
+
+<input type="button" value="click" onclick="myFunction();return false;"/>
+</apex:page>

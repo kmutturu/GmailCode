@@ -1,0 +1,25 @@
+<apex:page controller="AjaxTestClass" showHeader="false"
+	standardStylesheets="false">
+	<apex:includeScript value="https://ap1.salesforce.com/resource/1299735321000/SHRA1jQuery" />
+	<apex:includeScript value="https://ap1.salesforce.com/resource/1299735440000/SHRA1modalScript" />
+	<apex:stylesheet value="https://ap1.salesforce.com/resource/1299735489000/modalstyle" />
+
+	<apex:form id="form">
+    Account Name:
+        <apex:selectList id="selectlist" value="{!Accounts}"
+			multiselect="false" size="1" onchange="test(),showModal()">
+			<apex:selectoptions value="{!AccountName}" />
+		</apex:selectList>
+		<apex:actionFunction name="test" action="{!test}" rerender="get"
+			status="status" oncomplete="hideMe()" />
+        Phone:
+        <apex:outputpanel id="get">
+			<apex:inputText value="{!phone}" disabled="true" />
+		</apex:outputpanel>
+		<div id="testdiv" class="testdiv"><br />
+		<apex:image url="{!$Resource.loading1}" height="50" width="50" />Loading...
+		</div>
+		<div id="backgrounddiv" class="backgrounddiv"></div>
+
+	</apex:form>
+</apex:page>

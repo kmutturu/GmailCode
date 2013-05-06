@@ -1,0 +1,28 @@
+<apex:page >
+
+<script>
+
+function searchit(val){
+
+window.location = "/search/SearchResults?searchType=2&str="+val+"&sen=001&sen=003&sen=00Q";
+
+
+
+}
+
+</script>
+
+<apex:form >
+
+
+Input: <apex:inputtext id="it"/>
+
+<!--<apex:commandButton value="search" onclick="searchit(document.getElementById('{!$component.it}').value); return false;" />-->
+<input value="Search" class="btn" name="search" title="Search" type="submit"/>
+
+</apex:form>
+
+
+
+
+  </apex:page>

@@ -1,0 +1,27 @@
+<apex:page id="pg" controller="remoteactclass">
+
+<script>
+function myscr(){
+    alert(document.getElementById('pg:frm:txt'));
+    var x = document.getElementById('pg:frm:txt').value;
+    remoteactclass.acctval(x,function(result,event){
+        if(event.status){
+            alert(result.Phone);
+            document.getElementById('optxt').value = result.Phone;
+        }
+        else if(event.type == 'Exception'){
+            alert('hai');
+        }
+    });
+}
+</script>
+
+
+<apex:form id="frm">
+    <apex:inputtext id="txt"/>
+    <!--<input type="Text" id="txt" />-->
+    <input type="button" value="check" onclick="myscr()"/>
+    <input type="text" id="optxt"/>
+</apex:form>
+ 
+</apex:page>

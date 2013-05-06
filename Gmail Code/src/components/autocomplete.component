@@ -1,0 +1,83 @@
+<apex:component controller="AutoComplete_Controller"> 
+
+<apex:attribute name="InputId" description="Id of the InputField to which the AutoComplete Componente will belong, use {!$Componente.THEID}" type="String" required="true"/> 
+<apex:attribute name="AutoCompleteId" description="Unique Id for this AutoComplete Component" type="String" required="true" /> 
+<apex:attribute name="ObjectName" description="This is the lookup Object." type="String" required="true"/> 
+<apex:attribute name="ClassName" description="This is the name of the CSS Class used to style the AutoComplete Menu." type="String" required="true"/> 
+<apex:attribute name="Width" description="AutoComplete Width, In case you need to adjust it for certain inputs" type="Integer" required="true"/> 
+
+<apex:actionFunction name="search{!AutoCompleteId}" action="{!searchSuggestions}" rerender="OP_" immediate="true" > 
+<apex:param name="aname" value="" /> 
+<apex:param name="objectname" value="" /> 
+</apex:actionFunction> 
+
+<!--<apex:actionFunction name="clear{!AutoCompleteId}" action="{!clearValues}" rerender="OP_" immediate="true"/>--> 
+
+<div id="suggestions"><div id="{!AutoCompleteId}" class="{!ClassName}" style="position:absolute;display:none;width:{!Width}px !important;"></div></div> 
+
+<script>new AutoComplete(document.getElementById('{!InputId}'),document.getElementById('{!AutoCompleteId}'),'search{!AutoCompleteId}','clear{!AutoCompleteId}','{!ObjectName}');</script> 
+
+<apex:outputPanel id="OP_AutoCompleteId" layout="block"> 
+
+<script> 
+//alert("{!AutoCompleteId}");
+var container = document.getElementById("{!AutoCompleteId}"); 
+container.innerHTML = ''; 
+var myElement; 
+var textNode; 
+var aIds; 
+var myNewElement; 
+</script> 
+
+<apex:actionStatus ><apex:facet name="stop"> 
+<apex:repeat value="{!resultsname}" var="a" rendered="{!hasparams}"> 
+<script> 
+myElement = document.createElement('div'); 
+myNewElement = document.createElement('div'); 
+//alert("{!a}");
+//alert('{!hasnoresults}'); 
+if({!hasnoresults}){ 
+/*myElement.id = '{!AutoCompleteId}N_R'; 
+//myElement.id = a.split(':')[1]; 
+myElement.style.background = "#CCCCFF"; 
+// myElement.style.abc = a.split(':')[1]; 
+var a = "{!a}"; 
+var b = ''; 
+if(a != null && a != 'undefined'){ 
+b = a.split(':')[0]; 
+} 
+textNode = document.createTextNode(b); 
+//textNode.Id = a.split(':')[1];*/ 
+//alert('in if');
+textNode =null;
+}else 
+if("{!a}" != 'undefined' && "{!a}" != 'null') 
+{ 
+var a = "{!a}"; 
+
+var b = a.split(':')[0];/*+"<div>"+ a.split(':')[1] +"</div>";*/ 
+textNode = document.createTextNode(b); 
+//textNode.Id = a.split(':')[1]; 
+} 
+//alert(textNode);
+if(textNode!=null){
+    //alert('in if--un---'+textNode);
+    myElement.appendChild(textNode); 
+    myNewElement.appendChild(document.createTextNode(':'+a.split(':')[1])); 
+    myNewElement.style.display='none'; 
+    myElement.appendChild(myNewElement); 
+    container.appendChild(myElement); 
+}
+</script> 
+</apex:repeat> 
+</apex:facet></apex:actionStatus> 
+
+<script> 
+if(document.getElementById("{!InputId}").type == 'hidden'){ 
+var cont=document.getElementById("{!AutoCompleteId}");cont.innerHTML='';cont.style.display='none'; 
+} 
+</script> 
+
+</apex:outputPanel> 
+
+</apex:component>

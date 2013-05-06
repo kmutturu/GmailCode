@@ -1,0 +1,6 @@
+<apex:page standardController="account" recordSetVar="accounts" contentType="application/vnd.ms-excel#contacts.csv" extensions="myrecorsetclass">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:commandButton action="{!mymet}" value="do this"/>
+    </apex:form>
+</apex:page>

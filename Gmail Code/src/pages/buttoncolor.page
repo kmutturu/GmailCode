@@ -1,0 +1,13 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false">
+<apex:form style="background-color:yellow;">
+<style>
+.ff
+{
+width:80px; border: px solid #dadada; background: skyblue;font: bold 12px Arial, Sans-serif;
+}
+</style>
+<apex:commandButton value="Gallery" styleclass="ff"/>
+
+<input type="button" value="Gallery" class="ff"/>
+</apex:form>
+</apex:page>

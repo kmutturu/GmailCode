@@ -1,0 +1,6 @@
+<apex:page >
+  <apex:includeScript value="{!$Resource.checkjs}"/>
+  <script>
+  alert('{!$User.FirstName}');
+  </script>
+</apex:page>

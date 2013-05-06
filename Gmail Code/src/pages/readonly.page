@@ -1,0 +1,13 @@
+<apex:page controller="readonly">
+    <apex:form id="frm">
+        <apex:pageBlock >
+            <apex:inputText value="{!firstval}" disabled="{!gotov}"/>
+            <apex:inputCheckbox value="{!check}" disabled="{!gotov}"/>
+         <apex:selectList value="{!str}" multiselect="false" size="1" >
+         <apex:actionSupport action="{!meval}" event="onchange" reRender="frm"/>
+            <apex:selectOptions value="{!StartTimes}"/>
+        </apex:selectList><p/>
+       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

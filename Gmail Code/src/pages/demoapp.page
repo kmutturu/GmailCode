@@ -1,0 +1,3 @@
+<apex:page sidebar="false" showHeader="false" renderAs="pdf" standardController="account">
+ <h1> This is my first page {!account.name}</h1>
+</apex:page>

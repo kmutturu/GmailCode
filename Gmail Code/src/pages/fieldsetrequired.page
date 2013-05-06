@@ -1,0 +1,10 @@
+<apex:page standardController="Unit_code__c" >
+<apex:form >
+    <apex:pageBlock >
+        <apex:repeat value="{!$ObjectType.Unit_code__c.FieldSets.unitcode}" var="f">
+            <apex:inputfield value="{!Unit_code__c[f]}" required="{!f.required}"/>
+        </apex:repeat>
+    </apex:pageBlock>
+    <apex:commandButton value="save" action="{!save}" />
+</apex:form>
+</apex:page>

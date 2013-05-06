@@ -1,0 +1,17 @@
+<apex:page controller="mycheck">
+
+<apex:form >
+    <apex:dataTable value="{!Acts}" var="x">
+        <apex:column >
+            <apex:inputCheckbox value="{!x.blnval}"/>
+        </apex:column>
+        
+         <apex:column >
+         <apex:inputText value="{!x.strval}"/>
+        </apex:column>
+ 
+    </apex:dataTable>
+    <apex:commandButton value="mysave" action="{!save}"/>
+</apex:form>
+  
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page controller="PropClass">
+    <apex:form >
+        <apex:inputText value="{!iVal}"/><br/>
+        Entered Value is : <apex:outputText value="{!iVal}"/><br/>
+        <apex:commandButton action="{!save}" value="save"/>
+        <apex:inputText value="{!act}"/>
+         Entered Value is : <apex:outputText value="{!act.name}"/><br/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:component access="global">
+    <apex:attribute name="tt" type="string" description="strtr"/>
+  <apex:image value="http://www.indianchild.com/images/hindu_god_ram.jpg" height="100" width="100"/>
+</apex:component>

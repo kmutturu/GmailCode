@@ -1,0 +1,7 @@
+<apex:page standardController="account">
+  <apex:form >
+  <c:autocomplete AutoCompleteId="auto" ObjectName="account" width="50" inputId="{!$Component.ips}"></c:autocomplete>
+  
+  <apex:inputfield id="ips" value="{!account.name}" />
+  </apex:form>
+</apex:page>

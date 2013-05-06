@@ -1,0 +1,9 @@
+<apex:page standardController="contract" standardStylesheets="false" contentType="application/vnd.ms-excel#contacts.xls"  recordSetVar="contracts">
+ <apex:form >
+     <apex:pageBlock >
+     <apex:pageBlockTable value="{!contracts}" var="s">
+         <apex:column value="{!s.ContractNumber}"/>
+     </apex:pageBlockTable>
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

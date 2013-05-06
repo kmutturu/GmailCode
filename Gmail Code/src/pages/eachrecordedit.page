@@ -1,0 +1,200 @@
+<apex:page controller="EditAccount">
+<style TYPE="text/css">
+.rows
+{
+   
+    right:5px;
+    font-weight: bold;
+    padding-right:3em;   
+    color: #333333;
+    width: 100px;
+    height: 20px;
+}
+</style>
+    
+<script type="text/javascript">
+function popup(oid) 
+{
+        
+       var url='/apex/ma4?id=' + oid;   
+       window.open(url,"Homepage","resizable=yes,status=yes,scrollbars=yes,width=400,height=200,target=_blank");
+}
+
+function popu(aid)
+{
+    if(aid != '')
+    {
+        document.getElementById('xyz').value = aid;
+        alert('?????'   + aid);
+    }
+}
+
+function ppppp()
+{
+    var acid = document.getElementById('xyz').value;
+    alert('>>>>>>'  + acid);
+    fetchdata1(acid);
+}
+
+function change()
+{
+   
+   var MyElement = document.getElementById("MTB");
+  
+   return true;
+}
+
+function HideShow(rId,Id,mode)
+{
+    alert('ABC');
+    var rowId = rId;
+    var accountId = Id;
+    var editrowId = 'edit:'+ Id;
+    if(mode == 'n')
+    {
+        document.getElementById(rowId).style.display = 'none';
+        document.getElementById(editrowId).style.display = 'block';
+    }
+    else if(mode == 'e')
+    {
+        
+        var rrowId = 'detail:'+ Id;
+   
+        document.getElementById(rrowId).style.display = 'block';
+        document.getElementById(rowId).style.display = 'none';
+        
+    }
+}
+
+</script>
+
+<body>
+<apex:form >
+                <h1><b><u><apex:outputText value="Account details:"/></u></b></h1>
+<marquee><b><h1><apex:outputText id="t1" value="{!propDT}" /></h1></b></marquee>
+
+   <table border="3">
+   <tr>
+     <th width='150' bgcolor="#00FFFF">AccountName</th>
+     <th width='153' bgcolor= "#00FFFF">Phone</th>
+     <th width='151' bgcolor="#00FFFF">Billing City</th>
+     <th width='150' bgcolor="#00FFFF">Created Date</th>
+   </tr>
+    </table>
+
+    <apex:outputPanel id="opnl">
+ 
+         <div style="width:100%">
+            <apex:repeat id="rptAccount" value="{!Account}" var="a" >
+        
+                <div id="detail:{!a.id}" style="width:61%;display:block;" ondblclick="HideShow(this.id,'{!a.id}','n');">
+                <table border="2">
+               <tr><td width='25%'><a href="#" onclick="popu('{!a.id}');fetchdata('{!a.id}');fetchdata1('{!a.id}');" ondbclick="change();"><h2>{!a.name}</h2></a></td>
+           
+                                                   
+                         <td width='25%'><h2>  <span style="width:45%">{!a.phone}</span></h2></td>
+                         
+                          <td width='25%'><h2> <span style="width:25%" >{!a.billingcity}</span></h2></td>
+                         <td width='25%'>  <span style="width:25%" class='rows'>{!a.CreatedDate}</span></td>
+                   </tr></table>
+                </div>
+        
+                <div id="edit:{!a.id}" style="width:35%;display:none;" >
+                  <table border="2"><tr>
+                  <td width='25%'><h2><span style="width:25%"><apex:inputField value="{!a.name}" id="MTBName" /></span></h2></td>
+                  <td width='25%'> <h1><span style="width:25%"><apex:inputField id="MTBPhone" value="{!a.phone}"/></span></h1></td>
+                   <td width='25%'> <h2><span style="width:25%"><apex:inputField id="MTBBCity" value="{!a.billingcity}"/></span></h2></td>
+                  <td width='25%'> <h2><span style="width:25%"><apex:inputField id="MTBCDate" value="{!a.createddate}"/></span></h2></td>
+                   <td width='25%'><input id="pqr" type="button" class="btn" value="save" onclick="HideShow('edit:{!a.id}','{!a.id}','e');savedata('{!a.id}');"/></td><td><input type="button" class="btn" value="cancel" onclick="HideShow('edit:{!a.id}','{!a.id}','e');"/></td>
+             </tr>  </table>
+                </div>
+              
+            </apex:repeat><br/>
+                    <apex:commandButton value="SaveALL" action="{!dosave}"/>
+        </div>
+             
+                  
+    <!--
+        <apex:pageBlockTable value="{!Account}" var="a" cellpadding="21" border="1">
+            <apex:column >
+                <a href="#" onclick="popu('{!a.id}');fetchdata('{!a.id}');fetchdata1('{!a.id}');" ondbclick="change();">{!a.name}</a>
+                <apex:inputField id="MTB" value="{!a.name}"/>
+                <input type="text" size="35" id="MyTextBox" value=""/>
+              
+             </apex:column>
+            <apex:column value="{!a.phone}"/>
+            
+            <apex:column value="{!a.billingcity}"/>
+            <apex:column value="{!a.createddate}"/>
+            <apex:column >
+               <apex:commandButton action="{!save}" value="save"/>
+               <apex:commandButton action="{!cancel}" value="cancel"/>
+            </apex:column>
+        </apex:pageBlockTable>
+        -->
+  
+  <br/><apex:outputText value="Contact Details:" style="font-size:13px;color:#00FFFF;font-weight: bold"/>
+    <apex:outputPanel id="opnlCont">
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!propAllContacts}" var="c">
+                <apex:column > 
+               <apex:outputLink value="/{!c.Id}">{!c.name}</apex:outputLink>
+                   <apex:facet name="header"> Contact Name</apex:facet>
+                 
+                </apex:column>
+               <apex:column value="{!c.Phone}"> 
+                   <apex:facet name="header">Contact Phone</apex:facet>
+                </apex:column>
+                <apex:column value="{!c.Department}"> 
+                   <apex:facet name="header">Contact Department</apex:facet>
+                </apex:column>
+                <apex:column value="{!c.title}"> 
+                   <apex:facet name="header">Contact title</apex:facet>
+                </apex:column>
+                <apex:column value="{!c.email}" breakBefore="true" colspan="4">
+                  <apex:facet name="header">Contact Name</apex:facet>
+                </apex:column>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:outputPanel>
+    
+<apex:outputText value="Opportunity Details:" style="font-size:13px;color:#00FFFF;font-weight: bold"/>
+<apex:pageBlock >
+   <apex:outputPanel id="opnlOpp">
+            <apex:pageBlockTable value="{!propLstWO}" var="o">
+                <apex:column value="{!o.propName}">
+                 <apex:facet name="header">Opportunity Name</apex:facet>
+                </apex:column>
+                <apex:column value="{!o.propAmount}">
+                 <apex:facet name="header">Opportunity Amount</apex:facet>
+                </apex:column>
+                <apex:column value="{!o.propAttachNames}">
+                  <apex:facet name="header">Opportunity Attachments</apex:facet>
+                </apex:column>
+                <apex:column ><input type="button" value="upload" onclick="popup('{!o.propId}')"/>
+                  <apex:facet name="header">Browse</apex:facet>
+                </apex:column>
+           </apex:pageBlockTable>
+    </apex:outputPanel>
+</apex:pageBlock>    
+</apex:outputPanel>
+
+
+    <apex:actionFunction id="getcontacts" name="fetchdata" action="{!GetAllContacts}" reRender="opnlCont">
+        <apex:param name="contactid" assignTo="{!propcontactid}" value="" />
+     </apex:actionFunction>
+
+   
+    <apex:actionFunction id="getopportunity" name="fetchdata1" action="{!GetAllOpportunity}" reRender="opnlOpp">
+        <apex:param name="opportunityid" assignTo="{!propopportunityid}" value="" />
+    
+    </apex:actionFunction>
+    
+   <input id="xyz" type="hidden" onclick="ppppp();" />
+   <apex:actionPoller action="{!refresh}" reRender="t1" interval="10"/>
+    <apex:actionFunction id="saveaccount" name="savedata" action="{!doSave}" reRender="opnl" oncomplete="alert('Name has been changed')" />
+      <apex:param name="accountsave" assignTo="{!propviewdata}" value=""/>
+   </apex:form>
+</body>
+</apex:page>

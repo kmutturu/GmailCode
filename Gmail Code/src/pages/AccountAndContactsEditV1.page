@@ -1,0 +1,35 @@
+<apex:page standardController="Shipment_Request__c"
+           extensions="AccountAndContactsEditExtensionV1"
+           tabStyle="Shipment_Request__c" title="Prototype Account Edit">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock mode="mainDetail">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!cancel}" value="Exit" />
+                <apex:commandButton action="{!save}" value="Save" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Shipment Request" collapsible="true" id="mainRecord" columns="2" >          
+                    <apex:inputField value="{!Shipment_Request__c.PCA_Reference__c}"/>
+                     <apex:commandButton action="{!fillspd}" value="Add Line Item" style="align:right;" />
+            </apex:pageBlockSection>
+           <apex:outputPanel id="contactList"> 
+                <apex:repeat value="{!Details}" var="contact" >
+                    <apex:pageBlockSection columns="1"  title="Shipment Request Details" collapsible="true">
+                        <apex:pageBlockSectionItem >
+                              <apex:pageBlockSection columns="3">
+                               <apex:inputField value="{!contact.Ship_From__c}"/>
+                            	<apex:commandButton value="Delete Contact" action="{!deleteContact}" rerender="contactList" style="align:right;">
+                                	<!-- <apex:param name="contactIdent" value="{!contact.ival}" assignTo="{!iget}"/> -->
+                            	</apex:commandButton>    
+                              </apex:pageBlockSection>
+                           </apex:pageBlockSectionItem>
+                            
+                        </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:outputPanel>
+             
+       </apex:pageBlock>
+    </apex:form>        
+ 
+   
+</apex:page>

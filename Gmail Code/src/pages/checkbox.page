@@ -1,0 +1,7 @@
+<apex:page standardController="account" recordSetVar="accounts">
+  <apex:form >
+      <apex:selectCheckboxes >
+          <apex:selectOptions value="{!accounts}"></apex:selectOptions>
+      </apex:selectCheckboxes>
+  </apex:form>
+</apex:page>

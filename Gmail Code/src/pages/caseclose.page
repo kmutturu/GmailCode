@@ -1,0 +1,6 @@
+<apex:page standardController="contract" >
+  
+  
+  {!contract.url__c}
+  
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page controller="cal">
+<apex:form >
+<apex:commandButton action="{!save}" value="save"/>
+</apex:form>
+</apex:page>

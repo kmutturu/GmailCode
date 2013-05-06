@@ -1,0 +1,10 @@
+<apex:page controller="createaccount">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:inputText value="{!txtval}"/>
+          <apex:pageBlockButtons location="top">
+          <apex:commandButton action="{!dothecal}" value="create account"/>
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page controller="propclass1">
+  <apex:form >
+      <apex:inputText value="{!strval}"/><br/>
+      <apex:commandButton action="{!doval}" value="clickme"/>
+      <apex:outputtext value="{!strval}"></apex:outputtext>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page standardController="opportunity" extensions="oppext" showHeader="false" sidebar="false">
+  
+  <apex:form >
+  
+      <apex:inputField value="{!opportunity.name}"/>
+      <apex:inputField value="{!opportunity.CloseDate}"/>
+      <apex:inputField value="{!opportunity.stagename}"/>
+      <apex:commandButton value="save" action="{!savethis}"/>
+  
+  <apex:outputPanel rendered="{!refreshPage}">
+   <script>
+      window.top.location='/{!opportunity.id}';
+   </script>
+</apex:outputPanel>
+  </apex:form>
+  
+  
+</apex:page>

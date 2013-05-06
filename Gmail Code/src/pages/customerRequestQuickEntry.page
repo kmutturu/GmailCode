@@ -1,0 +1,36 @@
+<apex:page Controller="CustomerRequestEntryController">
+
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.4.4.min.js')}"/>
+
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+     
+        function scroll(){
+            var docHeight = j$(document).height();
+            var winHeight = j$(window).height();
+            
+            j$('html,body').animate({scrollTop: docHeight - winHeight}, 1000);
+        }
+    </script> 
+    
+    <apex:sectionHeader title="Customer Requests" subtitle="{!acct.Name}"/>
+    
+    <apex:form >
+        <apex:commandButton value="New Request" action="{!newRequest}" reRender="requests" oncomplete="scroll();"/>
+        <apex:commandButton value="Save" action="{!save}" reRender="requests"/>
+    
+        <apex:outputPanel id="requests">
+            <apex:repeat value="{!requests}" var="r">
+                <apex:pageBlock >
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField value="{!r.Subject__c}"/>
+                        <apex:inputField value="{!r.Type__c}"/>
+                        <apex:inputField value="{!r.Priority__c}"/>
+                        <apex:inputField value="{!r.Description__c}" style="width: 100%"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:repeat>
+        </apex:outputPanel>
+    
+    </apex:form>
+</apex:page>

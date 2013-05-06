@@ -1,0 +1,7 @@
+<apex:page standardController="account" wizard="true">
+	<apex:iframe src="apex/DisplayClassValue" scrolling="true"
+		id="theIframe2" width="50%" />
+	<apex:form >
+		<apex:inputField value="{!account.name}" />
+	</apex:form>
+</apex:page>

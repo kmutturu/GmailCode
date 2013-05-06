@@ -1,0 +1,11 @@
+<apex:page >
+
+
+<apex:form >
+    <apex:inputText />
+    <a href="#" id="link" title="Contact Lookup (New Window)" tabindex="6"  onclick="javascript:window.open('https://ap1.salesforce.com/_ui/common/data/LookupPage?lkfm=editPage&lknm=newOwn&lktp=StandardUserLookup');">
+<img class="lookupIcon" title="Contact Lookup (New Window)" alt="Contact Lookup (New Window)" src="/s.gif"/>
+</a>
+</apex:form>
+  
+</apex:page>

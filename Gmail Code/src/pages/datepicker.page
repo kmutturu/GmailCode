@@ -1,0 +1,15 @@
+<apex:page standardController="Opportunity">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+
+<c:datepickerremover >
+<apex:inputField value="{!Opportunity.CloseDate}"/>
+</c:datepickerremover>
+
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

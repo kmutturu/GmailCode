@@ -1,0 +1,5 @@
+<apex:page >
+ <div class="mouseOverInfoOuter" onfocus="addMouseOver(this)" onmouseover="addMouseOver(this)" tabindex="0">
+ <img src="/s.gif" alt="" class="infoIcon" title=""/>
+ <div class="mouseOverInfo" style="display: none; opacity: 0; top: 241px; ">The unique name used by the API and managed packages. The name must begin with a letter and use only alphanumeric characters and underscores. The name cannot end with an underscore or have two consecutive underscores.</div></div>
+</apex:page>

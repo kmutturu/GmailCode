@@ -1,0 +1,12 @@
+<apex:page controller="dynamiccomp" >
+<apex:pageBlock >    
+      
+       <apex:form id="MyForm">   
+        <B>Please Enter an Account Number : </b>
+        <apex:inputText value="{!act}"/>
+         
+           <apex:outputLink >Go</apex:outputlink>
+        </apex:form>
+     <apex:dynamicComponent componentValue="{!MyFieldSetSection}"/>
+</apex:pageBlock>
+</apex:page>

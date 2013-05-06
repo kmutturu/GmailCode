@@ -1,0 +1,44 @@
+<apex:page showHeader="false" standardcontroller="Blog_Post__c">
+<apex:form >
+
+<!-- Skin CSS file -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/assets/skins/sam/skin.css" ></link>
+
+<!-- Utility Dependencies -->
+<script src="http://yui.yahooapis.com/2.3.0/build/utilities/utilities.js"></script>
+
+<!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->
+<script src="http://yui.yahooapis.com/2.3.0/build/container/container-min.js"></script>
+<script src="http://yui.yahooapis.com/2.3.0/build/menu/menu-min.js"></script>
+<script src="http://yui.yahooapis.com/2.3.0/build/button/button-beta-min.js"></script>
+
+<!-- Source file for Rich Text Editor-->
+<script src="http://yui.yahooapis.com/2.3.0/build/editor/editor-beta-min.js"></script>
+
+
+<div class="yui-skin-sam" style="display:none" id="editor" align="center" ><p />
+<h2>Blog Title: </h2>
+
+<apex:inputField value="{!Blog_Post__c.Name}"/> 
+<apex:commandButton value="Save" action="{!Save}"
+    onClick="beforeTextSave()"
+    oncomplete="window.parent.location.href='/apex/blog';"/>
+<p />
+<apex:inputtextarea id="msgpost" cols="500" rows="50" value="{!Blog_Post__c.Post__c}"/>
+</div>
+
+<script type="text/javascript" >
+var myEditor;
+window.onload = function init() {
+ myEditor = new YAHOO.widget.Editor('{!$component.msgpost}', {
+   height: '400px', width: '722px', dompath: true, animate: true });
+ myEditor.render();
+ document.getElementById('editor').style.display='';
+}
+function beforeTextSave() {
+ document.getElementById('{!$component.msgpost}').value = myEditor.getEditorHTML();
+}
+
+</script>
+
+</apex:form></apex:page>

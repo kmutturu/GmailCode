@@ -1,0 +1,12 @@
+<apex:page id="pg1" standardController="account">
+  <apex:form id="fm1">
+      <apex:inputField id="if1" value="{!account.Unit_code__c}"/>
+      <script>
+      var x = document.getElementById('{!$Component.if1}');
+      alert(x);
+      x.disabled = true;
+      x._right_arrow = true;
+      x._left_arrow = true;
+      </script>
+  </apex:form>
+</apex:page>

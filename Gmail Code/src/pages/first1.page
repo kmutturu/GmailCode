@@ -1,0 +1,11 @@
+<apex:page controller="add" >
+ <apex:form >
+ 
+     A : <apex:inputText id="a" value="{!a}"/>
+     B : <apex:inputText id="b" value="{!b}"/>
+     
+     <apex:commandbutton value="Result" action="{!result}" /> 
+ </apex:form>
+ 
+ 
+</apex:page>

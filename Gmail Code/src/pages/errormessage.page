@@ -1,0 +1,8 @@
+<apex:page standardController="account" extensions="errormessage" standardStylesheets="false">
+  <apex:form >
+  <apex:inputField value="{!account.name}"/>
+
+  <apex:commandButton value="save" action="{!getaccountname}"/>
+  <apex:commandButton value="{clone}" action="{!clone}"/>
+  </apex:form>
+</apex:page>

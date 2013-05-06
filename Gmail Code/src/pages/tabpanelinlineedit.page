@@ -1,0 +1,62 @@
+<apex:page controller="hashurl" showHeader="true">
+<style>
+.activeTab {background-color: #236FBD; color:white; background-image:none}
+.inactiveTab { background-color: lightgrey; color:black; background-image:none}
+</style>
+<script>
+alert(window.top.location);
+alert('{!$CurrentPage.Name}'+'***'+'{!$CurrentPage.url}');
+function calla(val){
+    window.location.hash = val;
+}
+</script>
+<apex:form id="frm">
+<apex:tabPanel tabClass="activeTab" inactiveTabClass="inactiveTab" switchType="client" selectedTab="tabdetails" id="AccountTabPanel">
+<apex:tab label="Main Contract Details" name="contractDetails" id="tabdetails">
+
+<input type="button" id="btn1" value="first" onclick="calla(this.value)"/>
+<input type="button" id="btn2" value="second"  onclick="calla()"/>
+<input type="button" id="btn3" value="third"  onclick="calla()"/>
+
+<div id="op1">
+    this is the first button data
+</div>
+<script>
+var loc = window.top.location;
+loc = loc + "";
+var x = "";
+if(loc.indexOf("#")>-1){
+     x = loc.split("#")[1];
+    alert('hash'+x);
+    }
+ if(x != ""){
+ alert('in to');
+     document.getElementById("op1").style = 'display:block';
+     }
+     
+     
+     
+}
+if( x == "")
+document.getElementById("op1").style = 'display:none';    
+</script>
+
+<apex:outputPanel id="op2" rendered="{!a}">
+    this is the second button data
+</apex:outputPanel>
+<apex:outputPanel id="op3" rendered="{!a}">
+    this is the third button data
+</apex:outputPanel>
+
+
+
+</apex:tab>
+<apex:actionFunction action="{!method1}" name="calla1" reRender="op1" />
+<apex:actionFunction action="{!method1}" name="calla2" reRender="op2" />
+<apex:actionFunction action="{!method1}" name="calla3" reRender="op3" />
+<apex:tab label="Related Shipments" name="shipments" id="shipments">
+
+</apex:tab> 
+</apex:tabPanel>
+</apex:form>
+</apex:page>

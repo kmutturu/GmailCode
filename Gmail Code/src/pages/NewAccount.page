@@ -1,0 +1,7 @@
+<apex:page standardController="account" >
+    
+    <apex:form >
+    <apeX:inputField value="{!account.name}"/>
+        <apex:commandButton value="save" action="{!save}" />
+    </apex:form>
+</apex:page>

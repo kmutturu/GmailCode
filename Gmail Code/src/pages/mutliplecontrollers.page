@@ -1,0 +1,11 @@
+<apex:page StandardController="Account" extensions="cont1,cont2,cont3,cont4,cont5,cont6,cont7,cont8">
+
+
+
+<apex:form >
+<apex:outputText value="{!cont2}"></apex:outputText>
+
+<apex:commandButton value="go" action="{!go}"/>
+</apex:form>
+  
+</apex:page>

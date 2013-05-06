@@ -1,0 +1,9 @@
+<apex:page standardController="contact" recordSetVar="conts">
+  <apex:form >
+      <apex:dataTable value="{!conts}" var="a">
+          <apex:column >
+              <apex:outputLink value="/{!a.id}" target="_top">{!a.lastname}</apex:outputLink>
+          </apex:column>
+      </apex:dataTable>
+  </apex:form>
+</apex:page>

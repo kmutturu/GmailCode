@@ -1,0 +1,22 @@
+<apex:page >
+    <apex:sectionHeader title="jQuery DF 10 Package Setup"/>
+    
+    <p>Here are the basic steps required to setup this package.</p>
+    
+    <strong>Customer Request Scroll/Slider Demo</strong><br/>
+    1) On Account layout add the related list Customer Requests.<br/>
+    2) On Customer Request related list add the custom button 'Quick Entry', which is included in package.<br/>
+    3) Create records with Quick Entry page, then edit or create one normally to play with slider.<br/><br/>
+    
+    <strong>Widget Demo</strong><br/>
+    1) On Account layout add the related list Widgets.<br/>
+    2) On Widgets related list add the custom button 'Widget Manager', which is included in package..<br/>
+    3) Create at least one widget that will be attached to the account (installed). <br/>
+    4) Create at least one widget that is not attached to any accounts (inventory).<br/>
+    5) Select the 'Widget Manager' button to start dragging and dropping. (Be careful, it can be addicting) <br/><br/><br/>
+    
+    Check out the jQuery documentation below to play with all of the other options you can apply to these widgets and interactions:<br/>
+    <a href="http://jqueryui.com/demos/slider/">http://jqueryui.com/demos/slider/</a><br/>
+    <a href="http://jqueryui.com/demos/draggable/">http://jqueryui.com/demos/draggable/</a><br/>
+    <a href="http://jqueryui.com/demos/droppable/">http://jqueryui.com/demos/droppable/</a><br/>
+</apex:page>

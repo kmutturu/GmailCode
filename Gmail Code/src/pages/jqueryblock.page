@@ -1,0 +1,28 @@
+<apex:page >
+    <head>
+        <style>
+         $j = jQuery.noConflict();
+            
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+        <script>
+           jQuery(document).ready(function($){
+               $('#btn').click(function(e){
+                   e.preventDefault();
+
+                   console.log('The following element was found when looking for an id of \'output1\':');
+                   console.log($('[id$=output1]')); /* Here's where we're grabbing the element. */
+               });
+           });
+        </script>
+
+    </head>
+
+  <apex:outputText value="She sells seashells by the seashore." id="output1"/>
+  <apex:outputText value="Peter Piper picked a pack of pickled peppers." id="output2"/>
+
+  <a href="" id="btn">Click me.</a>
+
+</apex:page>

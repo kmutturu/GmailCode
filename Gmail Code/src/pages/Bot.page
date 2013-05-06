@@ -1,0 +1,21 @@
+<!-- 
+/*
+ * Salesforce Bot Header - Do not remove!
+ *
+ * $Author: Aslam Bari  $
+ * $Change:  $
+ * $DateTime: 08 Nov, 2009 $
+ * $File: Bot.page $
+ * $Id:  $
+ * $Revision:  1.0 $
+ */
+
+/*
+ * This Page is the main response page for you Bot Queries results.
+ * @author Aslam Bari
+*/
+
+ -->
+<apex:page controller="BotController" sidebar="false" showheader="false" contenttype="text/javascript">
+{!outputData} 
+</apex:page>

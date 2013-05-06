@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>accounts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>accounts</shortDescription>
+        <value>Accounts</value>
+    </labels>
+    <labels>
+        <fullName>acompanyorlastnameismandatory</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>acompanyorlastnameismandatory</shortDescription>
+        <value>A Company or Last Name is mandatory!</value>
+    </labels>
+    <labels>
+        <fullName>action</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>advancedconfig</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>advancedconfig</shortDescription>
+        <value>Advanced Config</value>
+    </labels>
+    <labels>
+        <fullName>afterabulkuploadordeletionofdatathesearc</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>afterabulkuploadordeletionofdatathesearc</shortDescription>
+        <value>After a bulk upload or deletion of data the search keys are out of sync. By starting the Delta Update job all search keys will be in sync again. If there are newly inserted records these records will be duplicate checked as well. The results of this duplicate check can be found on the Batch Deduplication Overview.</value>
+    </labels>
+    <labels>
+        <fullName>allduplicateshavebeenprocessed</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>allduplicateshavebeenprocessed</shortDescription>
+        <value>All duplicates have been processed.</value>
+    </labels>
+    <labels>
+        <fullName>allotherrecordswillbemergedintothemaster</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>allotherrecordswillbemergedintothemaster</shortDescription>
+        <value>All other records will be merged into the master record.</value>
+    </labels>
+    <labels>
+        <fullName>amaximumof5activejobsisallowed</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>amaximumof5activejobsisallowed</shortDescription>
+        <value>A maximum of 5 active jobs is allowed.</value>
+    </labels>
+    <labels>
+        <fullName>amergeofobjectscannotbeundoneifyouautome</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>amergeofobjectscannotbeundoneifyouautome</shortDescription>
+        <value>A merge of objects cannot be undone, if you auto merge a batch deduplication job the following rules apply.</value>
+    </labels>
+    <labels>
+        <fullName>areyousure</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>areyousure</shortDescription>
+        <value>Are you sure?</value>
+    </labels>
+    <labels>
+        <fullName>areyousuredeletingtheselectedjobs</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>areyousuredeletingtheselectedjobs?</shortDescription>
+        <value>Are you sure deleting the selected jobs?</value>
+    </labels>
+    <labels>
+        <fullName>areyousuremergingtheselectedjobs</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>areyousuremergingtheselectedjobs?thiscan</shortDescription>
+        <value>Are you sure merging the selected jobs? This cannot be undone!</value>
+    </labels>
+    <labels>
+        <fullName>automaticmergeis</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>automaticmergeis</shortDescription>
+        <value>Automatic merge is</value>
+    </labels>
+    <labels>
+        <fullName>automaticmergeisstarteduponfinishanemail</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>automaticmergeisstarteduponfinishanemail</shortDescription>
+        <value>Automatic merge is started, upon finish an email will ben sent</value>
+    </labels>
+    <labels>
+        <fullName>batchdeduplication</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>batchdeduplication</shortDescription>
+        <value>Batch Deduplication</value>
+    </labels>
+    <labels>
+        <fullName>batchdeduplicationjobname</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>batchdeduplicationjobname</shortDescription>
+        <value>Batch deduplication job name</value>
+    </labels>
+    <labels>
+        <fullName>city</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>city</shortDescription>
+        <value>City</value>
+    </labels>
+    <labels>
+        <fullName>company</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>company</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>configurationoptions</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>configurationoptions</shortDescription>
+        <value>Configuration Options</value>
+    </labels>
+    <labels>
+        <fullName>contacts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>contacts</shortDescription>
+        <value>Contacts</value>
+    </labels>
+    <labels>
+        <fullName>couldnotfindthecorrectjob</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>couldnotfindthecorrectjob</shortDescription>
+        <value>Could not find the correct job.</value>
+    </labels>
+    <labels>
+        <fullName>country</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>create</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>create</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>createfirstconfig</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>createfirstconfig</shortDescription>
+        <value>Create First Config</value>
+    </labels>
+    <labels>
+        <fullName>creationofsearchkeysfor</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>creationofsearchkeysfor</shortDescription>
+        <value>Creation of search keys for</value>
+    </labels>
+    <labels>
+        <fullName>creationstartedwithid</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>creationstartedwithid</shortDescription>
+        <value>Creation Started With ID :</value>
+    </labels>
+    <labels>
+        <fullName>currentlicensevalidthrough</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>currentlicensevalidthrough</shortDescription>
+        <value>Current license valid through</value>
+    </labels>
+    <labels>
+        <fullName>deduplicationfor</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deduplicationfor</shortDescription>
+        <value>Deduplication for</value>
+    </labels>
+    <labels>
+        <fullName>deduplicationjobresultsgroupview</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deduplicationjobresultsgroupview</shortDescription>
+        <value>Deduplication Job Results - Group View</value>
+    </labels>
+    <labels>
+        <fullName>deduplicationmethod</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deduplicationmethod</shortDescription>
+        <value>Deduplication method</value>
+    </labels>
+    <labels>
+        <fullName>deduplicationof</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deduplicationof</shortDescription>
+        <value>Deduplication of</value>
+    </labels>
+    <labels>
+        <fullName>deduplicationweighting</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deduplicationweighting</shortDescription>
+        <value>Deduplication Weighting</value>
+    </labels>
+    <labels>
+        <fullName>default</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>default</shortDescription>
+        <value>Default</value>
+    </labels>
+    <labels>
+        <fullName>deletedisablereports</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletedisablereports</shortDescription>
+        <value>Delete Disable Reports</value>
+    </labels>
+    <labels>
+        <fullName>deleteofduplicatedisablereportstartedwit</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deleteofduplicatedisablereportstartedwit</shortDescription>
+        <value>Delete of Duplicate Disable Report Started With ID</value>
+    </labels>
+    <labels>
+        <fullName>deleteselected</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deleteselected</shortDescription>
+        <value>Delete Selected</value>
+    </labels>
+    <labels>
+        <fullName>deletionofdeduplicationresultsis</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletionofdeduplicationresultsis</shortDescription>
+        <value>Deletion of deduplication results is</value>
+    </labels>
+    <labels>
+        <fullName>deletionofdeduplicationresultsisfinished</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletionofdeduplicationresultsisfinished</shortDescription>
+        <value>Deletion of deduplication results is finished with</value>
+    </labels>
+    <labels>
+        <fullName>deletionofduplicatedisablereportis</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletionofduplicatedisablereportis</shortDescription>
+        <value>Deletion of Duplicate Disable Report is</value>
+    </labels>
+    <labels>
+        <fullName>deletionofduplicatedisablereportisfinish</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletionofduplicatedisablereportisfinish</shortDescription>
+        <value>Deletion of Duplicate Disable Report is finished with</value>
+    </labels>
+    <labels>
+        <fullName>deletionofsearchkeysfor</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletionofsearchkeysfor</shortDescription>
+        <value>Deletion of search keys for</value>
+    </labels>
+    <labels>
+        <fullName>deletionofselectedjobsisstarted</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deletionofselectedjobsisstarted</shortDescription>
+        <value>Deletion of selected Jobs is started.</value>
+    </labels>
+    <labels>
+        <fullName>deltaprocessing</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deltaprocessing</shortDescription>
+        <value>Delta Processing</value>
+    </labels>
+    <labels>
+        <fullName>description</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>discard</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>discard</shortDescription>
+        <value>Discard</value>
+    </labels>
+    <labels>
+        <fullName>discardgroup</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>discardgroup</shortDescription>
+        <value>Discard Group</value>
+    </labels>
+    <labels>
+        <fullName>duplicateacounts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicateacounts</shortDescription>
+        <value>Duplicate Acounts</value>
+    </labels>
+    <labels>
+        <fullName>duplicatecontacts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatecontacts</shortDescription>
+        <value>Duplicate Contacts</value>
+    </labels>
+    <labels>
+        <fullName>duplicatecount</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatecount</shortDescription>
+        <value>Duplicate Count</value>
+    </labels>
+    <labels>
+        <fullName>duplicatedisablereports</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatedisablereports</shortDescription>
+        <value>Duplicate Disable Reports</value>
+    </labels>
+    <labels>
+        <fullName>duplicateleads</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicateleads</shortDescription>
+        <value>Duplicate Leads</value>
+    </labels>
+    <labels>
+        <fullName>duplicatepairs</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatepairs</shortDescription>
+        <value>Duplicate Pairs</value>
+    </labels>
+    <labels>
+        <fullName>duplicatesetup</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatesetup</shortDescription>
+        <value>Duplicate Setup</value>
+    </labels>
+    <labels>
+        <fullName>duplicatesfound</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatesfound</shortDescription>
+        <value>Duplicates found:</value>
+    </labels>
+    <labels>
+        <fullName>duplicatethreshold</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicatethreshold</shortDescription>
+        <value>Duplicate threshold</value>
+    </labels>
+    <labels>
+        <fullName>enableenterprisefeatures</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>enableenterprisefeatures</shortDescription>
+        <value>Enable Enterprise features</value>
+    </labels>
+    <labels>
+        <fullName>failures</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>failures</shortDescription>
+        <value>failures</value>
+    </labels>
+    <labels>
+        <fullName>failurespleaseseethededuplicationoverv</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>failurespleaseseethededuplicationoverv</shortDescription>
+        <value>failures. \n Please see the deduplication overview for possible duplicates.</value>
+    </labels>
+    <labels>
+        <fullName>field</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>field</shortDescription>
+        <value>Field</value>
+    </labels>
+    <labels>
+        <fullName>fieldweighting</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>fieldweighting</shortDescription>
+        <value>Field Weighting</value>
+    </labels>
+    <labels>
+        <fullName>firstname</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>firstname</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>fuzzysearch</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>fuzzysearch</shortDescription>
+        <value>Fuzzy Search</value>
+    </labels>
+    <labels>
+        <fullName>group</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>group</shortDescription>
+        <value>Group</value>
+    </labels>
+    <labels>
+        <fullName>groupview</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>groupview</shortDescription>
+        <value>Group View</value>
+    </labels>
+    <labels>
+        <fullName>hasfailedpleasereassignthetasktoyourdata</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hasfailedpleasereassignthetasktoyourdata</shortDescription>
+        <value>has failed, please reassign the task to your data administrator.</value>
+    </labels>
+    <labels>
+        <fullName>highestgroupnumber</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>highestgroupnumber</shortDescription>
+        <value>Highest Group Number</value>
+    </labels>
+    <labels>
+        <fullName>iftheawtriggerreportdisableintheadvanced</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>iftheawtriggerreportdisableintheadvanced</shortDescription>
+        <value>If the awTriggerReportDisable in the advanced config is not disabled (value = 1) everytime a user uses the &apos;Disable Duplicate Check&apos; checkbox upon save of a record this is reported. This information can be viewed by using the report &apos;Disabled Duplicate Checks by User&apos;. To clear this information use the next button &apos;Delete Disable Reports&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>ifthesettingawusagestatsdisableissetto</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ifthesettingawusagestatsdisableissetto</shortDescription>
+        <value>If the setting &apos;awUsageStatsDisable&apos; is set to &apos;0&apos; every night statistics about the usage is sent to Addressed World. This includes Your Org Id, Your User Acount and which AW pages are accessed and how often. No userdetails or other organization details is sent to Addressed World.</value>
+    </labels>
+    <labels>
+        <fullName>incorrectlicensecode</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>incorrectlicensecode</shortDescription>
+        <value>Incorrect license code</value>
+    </labels>
+    <labels>
+        <fullName>input</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>input</shortDescription>
+        <value>Input</value>
+    </labels>
+    <labels>
+        <fullName>invalidlicense</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>invalidlicense</shortDescription>
+        <value>Invalid License</value>
+    </labels>
+    <labels>
+        <fullName>is</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>is</shortDescription>
+        <value>is</value>
+    </labels>
+    <labels>
+        <fullName>isfinishedwith</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>isfinishedwith</shortDescription>
+        <value>is finished with</value>
+    </labels>
+    <labels>
+        <fullName>jobid</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>jobid</shortDescription>
+        <value>JobId</value>
+    </labels>
+    <labels>
+        <fullName>jobname</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>jobname</shortDescription>
+        <value>Job name</value>
+    </labels>
+    <labels>
+        <fullName>joboverview</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>joboverview</shortDescription>
+        <value>Job Overview</value>
+    </labels>
+    <labels>
+        <fullName>lastbatch</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lastbatch</shortDescription>
+        <value>Last batch</value>
+    </labels>
+    <labels>
+        <fullName>lastmodifieddate</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lastmodifieddate</shortDescription>
+        <value>Last Modified Date</value>
+    </labels>
+    <labels>
+        <fullName>lastname</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lastname</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>laststart</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>laststart</shortDescription>
+        <value>Last start</value>
+    </labels>
+    <labels>
+        <fullName>leads</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>leads</shortDescription>
+        <value>Leads</value>
+    </labels>
+    <labels>
+        <fullName>license</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>license</shortDescription>
+        <value>License</value>
+    </labels>
+    <labels>
+        <fullName>licensekey</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>licensekey</shortDescription>
+        <value>License Key</value>
+    </labels>
+    <labels>
+        <fullName>licenseneeded</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>licenseneeded</shortDescription>
+        <value>License Needed</value>
+    </labels>
+    <labels>
+        <fullName>maxscore</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>maxscore</shortDescription>
+        <value>Max Score</value>
+    </labels>
+    <labels>
+        <fullName>merge</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>merge</shortDescription>
+        <value>Merge</value>
+    </labels>
+    <labels>
+        <fullName>mergeduplicatesifscoreishigherthen</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>mergeduplicatesifscoreishigherthen</shortDescription>
+        <value>Merge duplicates if score is higher than</value>
+    </labels>
+    <labels>
+        <fullName>mergegroup</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>mergegroup</shortDescription>
+        <value>Merge Group</value>
+    </labels>
+    <labels>
+        <fullName>mergeobjects</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>mergeobjects</shortDescription>
+        <value>Merge Objects</value>
+    </labels>
+    <labels>
+        <fullName>mergeoverview</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>mergeoverview</shortDescription>
+        <value>Merge Overview</value>
+    </labels>
+    <labels>
+        <fullName>mergeselection</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>mergeselection</shortDescription>
+        <value>Merge Selection</value>
+    </labels>
+    <labels>
+        <fullName>mergingof</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>mergingof</shortDescription>
+        <value>Merging of</value>
+    </labels>
+    <labels>
+        <fullName>minscore</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>minscore</shortDescription>
+        <value>Min Score</value>
+    </labels>
+    <labels>
+        <fullName>name</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>needhelp</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>needhelp</shortDescription>
+        <value>Need help?</value>
+    </labels>
+    <labels>
+        <fullName>noconfig</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>noconfig</shortDescription>
+        <value>Before you can use functions of Duplicate Check for Salesforce you need to install the config. Please go to the AW Duplicate Setup tab.</value>
+    </labels>
+    <labels>
+        <fullName>noduplicatesfound</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>noduplicatesfound</shortDescription>
+        <value>No Duplicates found</value>
+    </labels>
+    <labels>
+        <fullName>notallowed</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>notallowed</shortDescription>
+        <value>Not Allowed</value>
+    </labels>
+    <labels>
+        <fullName>object</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>object</shortDescription>
+        <value>Object</value>
+    </labels>
+    <labels>
+        <fullName>pairview</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>pairview</shortDescription>
+        <value>Pair View</value>
+    </labels>
+    <labels>
+        <fullName>persacc</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>persacc</shortDescription>
+        <value>Person Accounts</value>
+    </labels>
+    <labels>
+        <fullName>personaccounts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>personaccounts</shortDescription>
+        <value>Person Accounts</value>
+    </labels>
+    <labels>
+        <fullName>phone</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>pleasepresscreatetocreatethenescesarryfi</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>pleasepresscreatetocreatethenescesarryfi</shortDescription>
+        <value>Please press Create to create the nescesarry first config.</value>
+    </labels>
+    <labels>
+        <fullName>pleaseselect</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>pleaseselect</shortDescription>
+        <value>Please Select</value>
+    </labels>
+    <labels>
+        <fullName>problemssavingtheconfiguration</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>problemssavingtheconfiguration</shortDescription>
+        <value>Problems saving the configuration.</value>
+    </labels>
+    <labels>
+        <fullName>problemswiththebasicconfiguration</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>problemswiththebasicconfiguration</shortDescription>
+        <value>Problems with the basic configuration!</value>
+    </labels>
+    <labels>
+        <fullName>processingofdeltarecordsis</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>processingofdeltarecordsis</shortDescription>
+        <value>Processing of delta records is</value>
+    </labels>
+    <labels>
+        <fullName>processingofdeltarecordsisfinishedwith</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>processingofdeltarecordsisfinishedwith</shortDescription>
+        <value>Processing of delta records is finished with</value>
+    </labels>
+    <labels>
+        <fullName>record</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>record</shortDescription>
+        <value>Record</value>
+    </labels>
+    <labels>
+        <fullName>recordcount</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>recordcount</shortDescription>
+        <value>Record Count</value>
+    </labels>
+    <labels>
+        <fullName>recreate</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>recreate</shortDescription>
+        <value>(Re)Create</value>
+    </labels>
+    <labels>
+        <fullName>recreatesearchkeys</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>recreatesearchkeys</shortDescription>
+        <value>(Re)Create Search Keys</value>
+    </labels>
+    <labels>
+        <fullName>runningbatchdeduplicationscanonlybedonew</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>runningbatchdeduplicationscanonlybedonew</shortDescription>
+        <value>Running batch deduplications can only be done when you have an paid subscription for the Duplicate Check for Salesforce.  This can be obtained via the Sales department via sales@addressedworld.com and starts with 10 euro per month.</value>
+    </labels>
+    <labels>
+        <fullName>save</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>savedtheconfiguration</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>savedtheconfiguration</shortDescription>
+        <value>Saved the configuration.</value>
+    </labels>
+    <labels>
+        <fullName>score</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>score</shortDescription>
+        <value>Score</value>
+    </labels>
+    <labels>
+        <fullName>search</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>searchforduplicateaccounts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchforduplicateaccounts</shortDescription>
+        <value>Search for duplicate Accounts</value>
+    </labels>
+    <labels>
+        <fullName>searchforduplicatecontacts</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchforduplicatecontacts</shortDescription>
+        <value>Search for duplicate Contacts</value>
+    </labels>
+    <labels>
+        <fullName>searchforduplicateleads</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchforduplicateleads</shortDescription>
+        <value>Search for duplicate Leads</value>
+    </labels>
+    <labels>
+        <fullName>searchkeys</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchkeys</shortDescription>
+        <value>Search Keys</value>
+    </labels>
+    <labels>
+        <fullName>searchkeysareneededtofindduplicatesinbat</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchkeysareneededtofindduplicatesinbat</shortDescription>
+        <value>Search keys are needed to find duplicates in batch, fuzzy search or online duplicate check. These keys are stored in two custom fields added to the Account, Contact and Lead object. By executing the (re)creation of search keys every record in these objects is updated, which makes it possible that custom workflows and triggers are executed as well.</value>
+    </labels>
+    <labels>
+        <fullName>searchleads</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchleads</shortDescription>
+        <value>Search Leads</value>
+    </labels>
+    <labels>
+        <fullName>searchweighting</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchweighting</shortDescription>
+        <value>Search Weighting</value>
+    </labels>
+    <labels>
+        <fullName>selecttheobjectyouwishtodeduplicate</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>selecttheobjectyouwishtodeduplicate</shortDescription>
+        <value>Select the object you wish to deduplicate</value>
+    </labels>
+    <labels>
+        <fullName>sendusagereports</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>sendusagereports</shortDescription>
+        <value>Send Usage Reports</value>
+    </labels>
+    <labels>
+        <fullName>showinggroup</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>showinggroup</shortDescription>
+        <value>Showing group</value>
+    </labels>
+    <labels>
+        <fullName>soundmatching</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>soundmatching</shortDescription>
+        <value>Sound Matching</value>
+    </labels>
+    <labels>
+        <fullName>startautomaticmerge</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>startautomaticmerge</shortDescription>
+        <value>Start Automatic Merge</value>
+    </labels>
+    <labels>
+        <fullName>startbatchdeduplication</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>startbatchdeduplication</shortDescription>
+        <value>Start Batch Deduplication</value>
+    </labels>
+    <labels>
+        <fullName>startdeduplication</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>startdeduplication</shortDescription>
+        <value>Start Deduplication</value>
+    </labels>
+    <labels>
+        <fullName>startdeltajob</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>startdeltajob</shortDescription>
+        <value>Start Delta Job</value>
+    </labels>
+    <labels>
+        <fullName>startedwithid</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>startedwithid</shortDescription>
+        <value>started with ID</value>
+    </labels>
+    <labels>
+        <fullName>startmerge</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>startmerge</shortDescription>
+        <value>Start Merge</value>
+    </labels>
+    <labels>
+        <fullName>status</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>theautomaticmergeisfinishedwith</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>theautomaticmergeisfinishedwith</shortDescription>
+        <value>The Automatic merge is finished with</value>
+    </labels>
+    <labels>
+        <fullName>thecreationofsearchkeysfor</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>thecreationofsearchkeysfor</shortDescription>
+        <value>The creation of search keys for</value>
+    </labels>
+    <labels>
+        <fullName>thededuplicationof</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>thededuplicationof</shortDescription>
+        <value>The deduplication of</value>
+    </labels>
+    <labels>
+        <fullName>thedeletionofsearchkeysfor</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>thedeletionofsearchkeysfor</shortDescription>
+        <value>The deletion of search keys for</value>
+    </labels>
+    <labels>
+        <fullName>therecordwiththelastmodifieddateisseenas</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>therecordwiththelastmodifieddateisseenas</shortDescription>
+        <value>The record with the last modified date is seen as the master record.</value>
+    </labels>
+    <labels>
+        <fullName>to</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>to</shortDescription>
+        <value>to</value>
+    </labels>
+    <labels>
+        <fullName>updatewithanewversion</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>updatewithanewversion</shortDescription>
+        <value>Update with a new version</value>
+    </labels>
+    <labels>
+        <fullName>uponfinishanemailwillbesent</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>uponfinishanemailwillbesent</shortDescription>
+        <value>, upon finish an email will be sent.</value>
+    </labels>
+    <labels>
+        <fullName>useforsearchkey</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>useforsearchkey</shortDescription>
+        <value>Use For Search Key</value>
+    </labels>
+    <labels>
+        <fullName>value</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>value</shortDescription>
+        <value>Value</value>
+    </labels>
+    <labels>
+        <fullName>withminimumscoreof</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>withminimumscoreof</shortDescription>
+        <value>with minimum score of</value>
+    </labels>
+    <labels>
+        <fullName>wronginput</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>wronginput</shortDescription>
+        <value>Wrong Input</value>
+    </labels>
+    <labels>
+        <fullName>youarenotallowedtomergerecordspleasecont</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>youarenotallowedtomergerecordspleasecont</shortDescription>
+        <value>You are not allowed to merge records. Please contact your system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>youarenotlicensedtousethisfeaturepleasec</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>youarenotlicensedtousethisfeaturepleasec</shortDescription>
+        <value>You are not Licensed to use this feature, please contact your Salesforce Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>youneedatleasttworecordofthesameobjectty</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>youneedatleasttworecordofthesameobjectty</shortDescription>
+        <value>You need at least two record of the same object type to start merge.</value>
+    </labels>
+    <labels>
+        <fullName>youneedtoselectajobname</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>youneedtoselectajobname</shortDescription>
+        <value>You need to select a Job Name!</value>
+    </labels>
+    <labels>
+        <fullName>youneedtoselectajobtodelete</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>youneedtoselectajobtodelete</shortDescription>
+        <value>You need to select a job to delete.</value>
+    </labels>
+    <labels>
+        <fullName>youneedtoselectobjectandmethodfordedupli</fullName>
+        <categories>Partner Finder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>youneedtoselectobjectandmethodfordedupli</shortDescription>
+        <value>You need to select object and method for deduplication!</value>
+    </labels>
+</CustomLabels>

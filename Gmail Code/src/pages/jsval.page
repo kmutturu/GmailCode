@@ -1,0 +1,13 @@
+<apex:page id="pg">
+ <script>
+ var a = 9;
+ </script>
+ <apex:form >
+ <script>
+  
+  var theField = document.getElementById("{!$Component.inp}");
+ </script>
+ <apex:inputHidden id="inp"/>
+ <apex:outputText rendered="<script>document.write('theField.value')</script> > 8"  value="hai" />
+ </apex:form>
+</apex:page>

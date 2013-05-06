@@ -1,0 +1,11 @@
+<apex:page standardController="Account">
+    <apex:form >
+       <apex:pageBlock >
+       <apex:pageBlockSection title="account info">
+       Name of the Account is : {!Account.name}
+       Phone : {!account.phone}
+       Commercial HPR
+       </apex:pageBlockSection>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

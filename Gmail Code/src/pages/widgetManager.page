@@ -1,0 +1,139 @@
+<apex:page controller="WidgetManagerController" tabStyle="Account" id="page">
+
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.4.4.min.js')}"/>
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-ui-1.8.7.custom.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryFiles, 'css/ui-lightness/jquery-ui-1.8.7.custom.css')}"/>
+    
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+        
+        j$(document).ready(function(){
+            makeDraggable();
+        });
+        
+        function makeDraggable(){
+            j$('.widget').draggable({
+                revert: 'invalid'
+            });
+            
+            //Make installed widget area droppable
+            j$("#page\\:form\\:installBlock\\:section").droppable({
+               drop: function(event, ui){ 
+                   updateWidget(ui.draggable.attr('data-id'),'install'); //this line calls the actionFunction below and passes params
+               }
+            });    
+            
+            //Make widget inventory area droppable
+            j$("#page\\:form\\:inventoryBlock\\:section").droppable({
+               drop: function(event, ui){ 
+                   updateWidget(ui.draggable.attr('data-id'),'inventory'); //this line calls the actionFunction below and passes params
+               }
+            });
+        }
+    </script> 
+    
+    <apex:form id="form" >
+        <!--Action function called from script above-->
+        <apex:actionFunction name="updateWidget" action="{!updateWidget}" rerender="installBlock,inventoryBlock" oncomplete="makeDraggable();">
+            <apex:param name="widgetId" value=""/>   
+            <apex:param name="target" value=""/>   
+        </apex:actionFunction>
+        
+        <apex:sectionHeader title="Widget Manager - {!acct.Name}"/>
+      
+        <apex:pageBlock title="Company Information" mode="maindetail" id="info">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Back to Account" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="2">
+                <apex:outputField value="{!acct.Name}"/>
+                <apex:outputField value="{!acct.AccountNumber}"/>
+                <apex:outputField value="{!acct.BillingCity}"/>
+                <apex:outputField value="{!acct.Type}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Installed Widgets"  mode="edit" id="installBlock">
+            <apex:pageBlockSection columns="1" id="section" >
+                 
+                    <apex:repeat value="{!installedWidgets}" var="w">
+                        <div class="widget" data-id="{!w.Id}" style="{!IF(w.Status__c == 'Maintenance Required','-moz-box-shadow: 0px 0px 2px 2px red;','')}">
+                            <apex:panelGrid columns="2" columnClasses="label,value">
+                                <apex:outputLabel value="{!$ObjectType.Widget__c.fields.Name.label}"/>
+                                <apex:outputField value="{!w.Name}"/>
+                                <apex:outputLabel value="{!$ObjectType.Widget__c.fields.Status__c.label}"/>
+                                <apex:outputField value="{!w.Status__c}"/>
+                                <apex:outputLabel value="{!$ObjectType.Widget__c.fields.Serial_Number__c.label}"/>  
+                                <apex:outputField value="{!w.Serial_Number__c}"/>   
+                            </apex:panelGrid>
+                        </div>
+                    </apex:repeat>
+                    
+                    <apex:outputPanel styleClass="dropSection" layout="block" rendered="{!installedWidgets.size == 0}">
+                        <!-- This panel is rendered if there are no widgets installed, if there is nothing installed the height
+                        of the section would be 0px and there would be no place to drop the widgets, this ensures there is an element
+                        with enough height to accept a dropped element -->  
+                    </apex:outputPanel>
+                    
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Widget Inventory" mode="edit" id="inventoryBlock">
+            <apex:pageBlockSection columns="1" id="section" >
+    
+                    <apex:repeat value="{!inventoryWidgets}" var="w">
+                        <div class="widget" data-id="{!w.Id}" style="{!IF(w.Status__c == 'Maintenance Required','-moz-box-shadow: 0px 0px 2px 2px red;','')}">
+                            <apex:panelGrid columns="2" columnClasses="label,value">
+                                <apex:outputLabel value="{!$ObjectType.Widget__c.fields.Name.label}"/>
+                                <apex:outputField value="{!w.Name}"/>
+                                <apex:outputLabel value="{!$ObjectType.Widget__c.fields.Status__c.label}"/>
+                                <apex:outputField value="{!w.Status__c}"/>
+                                <apex:outputLabel value="{!$ObjectType.Widget__c.fields.Serial_Number__c.label}"/>  
+                                <apex:outputField value="{!w.Serial_Number__c}"/>   
+                            </apex:panelGrid>
+                        </div>   
+                    </apex:repeat>
+                    
+                    <apex:outputPanel styleClass="dropSection" layout="block" rendered="{!inventoryWidgets.size == 0}">
+                        <!-- This panel is rendered if there are no widgets in inventor, if there is nothing in inventory the height
+                        of the section would be 0px and there would be no place to drop the widgets, this ensures there is an element
+                        with enough height to accept a dropped element -->  
+                    </apex:outputPanel>
+    
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <!-- Yes, this should be in an external style sheet... -->
+    <style>
+        .dropSection{
+            min-height: 95px;
+        }
+        .label{
+            font-weight:bold;
+            text-align:right;
+        }
+        .value{
+            text-align:left;
+        }
+        .widget{
+            background-color: white;
+            border: 3px solid #d5d5d5;
+            float: left;
+            padding: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+       
+        #installedWidgets{
+             border: 3px solid black;
+        }
+        #widgetInventory{
+             border: 3px solid black;
+        }
+    </style>
+   
+</apex:page>

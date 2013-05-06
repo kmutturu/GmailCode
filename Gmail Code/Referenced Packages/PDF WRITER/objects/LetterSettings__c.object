@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>Custom Settings for the PDF-Writer.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Attachment_Subject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter text for the subject field of the attached PDF, for example &quot;Cost_Estimate&quot;. The date will be automatically appended to create a file name &quot;Cost_Estimate_08.12.2011.pdf&quot;.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter text for the subject field of the attached PDF, for example &quot;Cost_Estimate&quot;. The date will be automatically appended to create a file name &quot;Cost_Estimate_08.12.2011.pdf&quot;.</inlineHelpText>
+        <label>Attachment Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Text__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field contains the pre-populated value for the &quot;date&quot; field on the letter generator.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field contains the pre-populated value for the &quot;date&quot; field on the letter generator.</inlineHelpText>
+        <label>Date Text</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>E_Mail_Template_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a valid Email Template Id.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a valid Email Template Id.</inlineHelpText>
+        <label>E-Mail Template Id</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enable_Attachment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Save the PDF letter as an attachment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Save the PDF letter as an attachment.</inlineHelpText>
+        <label>Enable Attachment</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_E_Mail_send__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable to send the PDF letter as an E-Mail.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enable to send the PDF letter as an E-Mail.</inlineHelpText>
+        <label>Enable E-Mail send</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Task__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Save the PDF letter as a task.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Save the PDF letter as a task.</inlineHelpText>
+        <label>Enable Task</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Folder_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the ID of a document folder.
+The folder must be public read/write.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the ID of a document folder.
+The folder must be public read/write.
+Temporary documents will be stored in that folder.</inlineHelpText>
+        <label>Document Folder Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Letter_Remark__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a letter remark.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a letter remark.</inlineHelpText>
+        <label>Letter Remark</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Letter_Subject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a subject for the letter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a subject for the letter.</inlineHelpText>
+        <label>Letter Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Letter_Understanding__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a greeting or salutation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a greeting or salutation.</inlineHelpText>
+        <label>Letter Understanding</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Salutation_field__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the name of the salutation field. (Only a contact field or lead field, includes custom fields)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the salutation field.</inlineHelpText>
+        <label>Salutation field</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Signature_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter your name, for example John Doe.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter your name, for example John Doe.</inlineHelpText>
+        <label>Signature Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Signature_Position__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter your title.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter your title.</inlineHelpText>
+        <label>Signature Position</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Priority__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a task priority for example high, low, medium.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a task priority for example high, low, medium.</inlineHelpText>
+        <label>Task Priority</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a task status, for example, Not started, In Progress, Completed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a task status, for example, Not started, In Progress, Completed.</inlineHelpText>
+        <label>Task Status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Subject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a task subject.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a task subject.</inlineHelpText>
+        <label>Task Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Template_CSS__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a style sheet name from static resources.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a style sheet name from static resources.</inlineHelpText>
+        <label>Template CSS</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Template_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter a template name from static resources.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a template name from static resources.</inlineHelpText>
+        <label>Template Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Letter Settings</label>
+</CustomObject>

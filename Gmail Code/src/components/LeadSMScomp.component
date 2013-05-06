@@ -1,0 +1,104 @@
+<!--
+/*Component Name: LeadSMSComp
+* Author : Charan & Jaya Lakshmi
+* Date : 05th Feb 2011
+* Purpose:A VF Page that pops when user clicks on BULK SMS List button on Leads Page 
+* Modification History :
+*/-->
+
+
+<!-- Start Of SMS Component on Leads--> 
+<apex:component controller="SendLeadBulkSms" allowDML="true" id="comp">
+
+    <!-- Start of tab Panel-->
+    <apex:tabPanel switchType="Client"> 
+        <!-- Start of First tab-->
+        <apex:tab label="Selected Leads" >
+            <!-- Start of Script Coding-->
+            <script>
+              
+                
+                <!--for Message not to be Empty-->
+                function valid()
+                {
+                    var msg=document.getElementById('page:form:j_id0:comp:pb2:coms').value;
+                    if(msg==''){
+                    alert('Please enter a message to be sent');
+                    return false;
+                    }
+                }
+            </script>
+            <!-- End of Script Coding-->
+            
+         
+            <!-- To Show Company logo-->           
+            <apex:image value="{!$Resource.Logo}" height="80px" width="180px"/>
+            <h1 style="align:center; font-size:28px; font-color:Violet">Bulk SMS To Selected Leads</h1>
+                <!-- To show Error messages on Page-->
+            <apex:Messages style="align:center; color:red ;font-size:16px"/>        
+            <!-- Start of Pageblock-->
+            <apex:pageBlock title="Leads Selected" id="pb1" rendered="{!sms}">
+                <div style="height:200px; overflow:auto">
+                    <!-- Start of Page Block table-->
+                    <apex:pageblocktable width="800px" value="{!selected}" var="item">
+                        <apex:column headerValue="Lead">
+                        {!item.name}
+                        </apex:column>
+                        <apex:column headerValue="Mobile Phone">
+                        {!item.mobilephone}
+                        </apex:column>
+                    </apex:pageblocktable>
+                    <!-- End of Page Block table-->
+                </div>
+            </apex:pageBlock>
+            <!-- End of pageblock -->
+            
+            <br/>
+            <!-- Start of Page block-->
+            <apex:pageBlock id="pb2" rendered="{!sms}">   
+                <h1 style="align:center; font-Size:18px">Message:</h1><h1 style="font-Size:10px">(max:160 Chars)</h1><br/><br/>
+                <apex:inputTextarea value="{!comments}" cols="50" rows="5"  id="coms"/><br/>
+                
+                <apex:commandButton value="Send" action="{!smsaction}" onClick="return valid()" />&nbsp;&nbsp;
+                <apex:commandButton value="Close" onclick="self.close();"/><br/><br/>
+            </apex:pageBlock>
+            <!-- End of Page block-->
+            <!-- to make rendered when SMS sent to BULK SMS-->
+            <div align="center" style="color:Orange">
+            <apex:outputText rendered="{!renderselected}">Sending Bulk SMS, So Summary reports can be viewed in Home Page</apex:outputText>
+            </div>
+        </apex:tab>
+        <!-- End of First tab-->
+            
+        <!-- Start of Second tab-->
+        <apex:tab label="Summary Report" rendered="{!renderresult}" >
+            <!-- Start of Page block-->
+            <apex:pageBlock >
+            <!-- Summary Report-->
+            <h1 style="font-size:14px;">Summary Report:</h1><br/><br/>
+            Number of Messages sent Successfully:&nbsp;<apex:outputtext value="{!slength}" style="color:green"/><br/><br/>
+            Number of Messages failed:&nbsp;<apex:outputtext value="{!flength}" style="color:red"/><br/>
+            <div align="right">
+            <apex:commandButton value="Close" onclick="self.close();"/>
+            </div>
+            <div style="height:250px; overflow:auto">
+                <!-- Page Block Table to highlight Failure Leads--> 
+                <apex:pageBlockTable value="{!Names}" var="res" >
+                    <apex:column headerValue="Lead" style="background-color:{!res.strStyle}">
+                    {!res.con.name}
+                    </apex:column>
+                    <apex:column headerValue="Mobile Phone" style="background-color:{!res.strStyle}">
+                    {!res.con.mobilephone}
+                    </apex:column>
+                </apex:pageBlockTable>
+            </div>
+            </apex:pageBlock>
+            <!-- End of Page block-->
+       </apex:tab>
+       <!-- End of Second tab-->
+    </apex:tabPanel>
+    <!-- End of tab Panel-->
+
+</apex:component>
+
+<!-- End Of SMS Component on Leads-->

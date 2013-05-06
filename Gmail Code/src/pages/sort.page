@@ -1,0 +1,53 @@
+<apex:page controller="MyPagingController" tabStyle="Account">
+        <apex:sectionHeader title="Accounts List with Paging"></apex:sectionHeader>
+        <apex:form >
+        <apex:pageBlock title="" id="pageBlock">
+        <div align="right" style="display:{!IF(NOT(ISNULL(accounts)),'block','none')}">
+        <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+        <apex:commandButton value="Previous" action="{!previousBtnClick}" disabled="{!previousButtonEnabled}" reRender="pageBlock"></apex:commandButton>
+        <apex:commandButton value="Next" action="{!nextBtnClick}" reRender="pageBlock" disabled="{!nextButtonDisabled}" ></apex:commandButton>
+        </div>
+        <br/><br/>
+        <apex:pageBlockTable value="{!accounts}" var="a" rendered="{!NOT(ISNULL(accounts))}" rows="{!PageSize}">
+        
+       <apex:column >
+         <apex:facet name="header">   
+           <apex:commandLink action="{!ViewData}" value="Account Name{!IF(sortExpression=='name',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+             <apex:param value="name" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+         <apex:outputLink value="/{!a.Id}" target="_blank">{!a.Name}</apex:outputLink>
+       </apex:column>
+       <apex:column value="{!a.Phone}">
+         <apex:facet name="header">
+           <apex:commandLink action="{!ViewData}" value="Phone{!IF(sortExpression=='Phone',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Phone" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+        <apex:column value="{!a.BillingCity}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!ViewData}" value="Billing City{!IF(sortExpression=='BillingCity',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="BillingCity" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+        <apex:column value="{!a.BillingCountry}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!ViewData}" value="Billing Country{!IF(sortExpression=='BillingCountry',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="BillingCountry" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       
+        </apex:pageBlockTable>
+        <div align="right" style="display:{!IF(NOT(ISNULL(accounts)),'block','none')}">
+        <br/>
+        <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+        <apex:commandButton value="Previous" action="{!previousBtnClick}" disabled="{!previousButtonEnabled}" reRender="pageBlock"></apex:commandButton>
+        <apex:commandButton value="Next" action="{!nextBtnClick}" reRender="pageBlock" disabled="{!nextButtonDisabled}" ></apex:commandButton>
+        </div>
+
+        </apex:pageBlock>
+        </apex:form>
+    </apex:page>

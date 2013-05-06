@@ -1,0 +1,7 @@
+<apex:page standardController="case" sidebar="false" showHeader="false">
+ 
+ <script>
+ alert( '{!$Label.url}');
+     window.location = '{!$Label.url}';
+ </script>
+</apex:page>

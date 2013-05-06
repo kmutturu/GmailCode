@@ -1,0 +1,12 @@
+<apex:page tabStyle="opportunity">
+  <apex:form >
+      <apex:pageBlock >
+      <div class="">
+      <h3 class="lbHeader">Reports</h3>
+      <div class="lbBody">
+     <div class="lbBody">
+     <div class="mainLink"><a href="/00O/o?entityType=00O">Go to Reports</a>&nbsp;
+     </div></div></div></div>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page id="pg" controller="testcheck">
+<script>
+var x = 1;
+function chk(val){
+    alert(val.checked);
+    if(val.checked == true){
+        alert('in to');
+        x = 2;
+        document.getElementById('{!$Component.idt}').style.display = 'block';
+        }
+}
+</script>
+ <apex:form id="frm">
+     <apex:inputCheckbox id="idc">
+     <apex:actionSupport event="onclick" action="{!dothis}" reRender="frm">
+     <apex:param assignTo="{!str}" value="test" />
+     </apex:actionsupport>
+     </apex:inputcheckbox>
+     <apex:inputText id="idt" />
+     <script>if(x != 2)document.getElementById('{!$Component.idt}').style.display = 'none';
+     </script>
+ </apex:form>
+</apex:page>

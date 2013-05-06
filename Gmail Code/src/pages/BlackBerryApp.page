@@ -1,0 +1,16 @@
+<apex:page showheader="false" controller="searchAccount" >
+<h2> This is my Blackberry App </h2><br />
+<h4>Kiran's search app</h4>
+
+<form name="searchForm" method="post" action="#" >
+Account Name:
+<input type="text" name="q" size="10" id="input" />
+<input type="submit" class="button" name="aid" />
+</form>
+<hr />
+
+<apex:dataList value="{!accounts}" var="each" >
+{!each.Name}, {!each.phone}
+</apex:dataList>
+
+</apex:page>

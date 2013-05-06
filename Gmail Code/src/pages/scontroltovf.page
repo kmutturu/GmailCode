@@ -1,0 +1,190 @@
+<apex:page standardcontroller="account">
+
+<html> 
+
+<head> 
+
+<title>Copy account billing address to contact mailing address</title> 
+
+<link href="/dCSS/Theme2/default/common.css" type="text/css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" /> 
+<link href="/dCSS/Theme2/default/custom.css" type="text/css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" /> 
+<link href="/css/assistive.css" type="text/css" media="aural,braille,embossed" rel="stylesheet" /> 
+<script language="javascript" src="https://www.salesforce.com/services/lib/ajax/beta3.3/sforceclient.js" type="text/javascript"></script> 
+
+<script> 
+
+
+
+var street = ""; 
+var city = ""; 
+var stateProvince = ""; 
+var zipPostalCode = ""; 
+var country = ""; 
+
+function initPage() { 
+
+sforceClient.registerInitCallback(setup); 
+
+sforceClient.init("{!$API.Session_ID}", "{!$API.Partner_Server_URL_70}", true); 
+
+} 
+
+//Use this function as the entry point for your DHTML and JAVASCRIPT processing 
+
+function setup() { 
+
+var queryResult = sforceClient.query("Select Id, BillingStreet,(select id from contacts), BillingCity, BillingState, BillingPostalCode, BillingCountry From Account where Id = '{!Account.Id}'", layoutResults); 
+
+} 
+
+function layoutResults(queryResult) { 
+
+if (queryResult.className == "Fault") { 
+
+alert("There was an error: " + queryResult.toString()); 
+
+} else { 
+
+if (queryResult.size > 0) { 
+
+//alert("Query returned " + queryResult.size + " rows"); 
+
+for (var i=0;i<queryResult.records.length;i++) { 
+
+var dynaBean = queryResult.records[i];   
+var contact = dynaBean.get("contacts");
+alert(contact+'***');
+street = dynaBean.get("BillingStreet"); 
+city = dynaBean.get("BillingCity"); 
+stateProvince = dynaBean.get("BillingState"); 
+zipPostalCode = dynaBean.get("BillingPostalCode"); 
+country = dynaBean.get("BillingCountry"); 
+
+//alert("street=" + street); 
+//alert("city=" + city); 
+//alert("stateProvince=" + stateProvince); 
+//alert("zipPostalCode=" + zipPostalCode); 
+//alert("country=" + country); 
+
+} 
+
+var textNodeStreet = document.createTextNode(street); 
+var textNodeCity = document.createTextNode(city); 
+var textNodeStateProvince = document.createTextNode(stateProvince); 
+var textNodeZipPostalCode = document.createTextNode(zipPostalCode); 
+var textNodeCountry = document.createTextNode(country); 
+
+document.getElementById("street").innerHTML = street; 
+document.getElementById("city").innerHTML = city; 
+document.getElementById("stateProvince").innerHTML = stateProvince; 
+document.getElementById("zipPostalCode").innerHTML = zipPostalCode; 
+document.getElementById("country").innerHTML = country; 
+
+} else { 
+
+var textNode = document.createTextNode("No records matched."); 
+
+} 
+
+} 
+
+} 
+
+
+function copyAddress() { 
+
+var contact = new Sforce.Dynabean("contact"); 
+
+alert("copyAddress called"+contact); 
+contact.set("Id", contact.id);
+contact.set("MailingStreet", street ); 
+contact.set("MailingCity", city ); 
+contact.set("MailingState", stateProvince ); 
+contact.set("MailingPostalCode", zipPostalCode ); 
+contact.set("MailingCountry", country ); 
+
+contact.fieldsToNull = ["MailingStreet", "MailingCity", "MailingState", "MailingPostalCode", "MailingCountry"]; 
+
+var saveResult = sforceClient.update([contact]); 
+
+for (var i=0;i<saveResult.length;i++) { 
+
+if (saveResult[i].success != true) { 
+
+alert("Problem copying address: " + saveResult[i].errors[0].message);
+
+} 
+
+} 
+
+} 
+
+
+window.onlaod=initPage();
+</script> 
+
+</head> 
+
+<body onload="" class="contact"> 
+<div class="bPageBlock secondaryPalette" id="ep"> 
+<div class="pbBody"> 
+<div class="pbSubheader tertiaryPalette" id="head_01Bx0000000ZF26_ep"> 
+<h3> 
+Account Billing Address<span class="titleSeparatingColon">:</span> 
+</h3> 
+</div> 
+<div class="pbSubsection"> 
+<TABLE class="detailList" cellpadding="0" cellspacing="0" border="0"> 
+<TR> 
+<TD class="labelCol">Billing Street</TD> 
+<TD class="dataCol"> 
+<div id="street"></div> 
+</TD> 
+</TR> 
+<TR> 
+<TD class="labelCol">Billing City</TD> 
+<TD class="dataCol"> 
+<div id="city"></div> 
+</TD> 
+</TR> 
+<TR> 
+<TD class="labelCol">Billing State/Province</TD> 
+<TD class="dataCol"> 
+<div id="stateProvince"></div> 
+</TD> 
+</TR> 
+<TR> 
+<TD class="labelCol">Billing Zip/Postal Code</TD> 
+<TD class="dataCol"> 
+<div id="zipPostalCode"></div> 
+</TD> 
+</TR> 
+<TR> 
+<TD class="labelCol">Billing Country</TD> 
+<TD class="dataCol"> 
+<div id="country"></div> 
+</TD> 
+</TR> 
+</TABLE> 
+</div> 
+</div> 
+<div class="pbBottomButtons"> 
+<TABLE cellpadding="0" cellspacing="0" border="0"> 
+<TR> 
+<TD class="pbTitle"> 
+<img src="s.gif" alt="" title="" width="1" height="1" class="minWidth"/>&nbsp; 
+</TD> 
+<TD class="pbButtonb"> 
+<input value=" Copy " class="btn" type="button" title="Copy" onclick="copyAddress(); opener.window.location.reload(true); window.close()" name="copy"/> 
+<input value="Cancel" class="btn" type="button" title="Cancel" onclick="window.close()" name="Cancel"/> 
+</TD> 
+</TR> 
+</TABLE> 
+</div> 
+<div class="pbFooter secondaryPalette"> 
+<div class="bg"></div> 
+</div> 
+</div> 
+</body> 
+</html>
+</apex:page>

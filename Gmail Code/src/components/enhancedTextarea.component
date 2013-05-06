@@ -1,0 +1,21 @@
+<apex:component controller="EnhancedTextareaController" allowDML="true" >
+
+    <script type="text/javascript" src="{!$Resource.JQExpandable10}"></script>
+    
+      <apex:attribute name="pageController" 
+          type="PageControllerBase" 
+          assignTo="{!pageController}" 
+          required="true" 
+          description="The controller for the page." />
+          
+    <apex:attribute name="object" description="This is the object" type="SObject" required="false" assignTo="{!myObject}" />
+    <apex:attribute name="fieldName" description="This is the field name" type="String" required="true" assignTo="{!fieldName}" />
+    <apex:attribute name="width" description="Textarea width" type="String" required="false" assignTo="{!width}" />
+    <apex:attribute name="height" description="Textarea height" type="String" required="false" assignTo="{!height}" />
+    <apex:attribute name="expandable" description="Does textarea expand when you type?" type="String" required="false" assignTo="{!expandable}" />
+
+    {!onLoad}
+        
+   <apex:inputTextArea styleClass="TA{!fieldName}" value="{!myValueHolder}" />
+
+</apex:component>

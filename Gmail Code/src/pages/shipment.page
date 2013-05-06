@@ -1,0 +1,19 @@
+<apex:page standardController="Shipment_Request__c">
+    <apex:form >
+        <apex:sectionHeader subtitle="New Shipment Request" title="Shipment Request" printUrl="{!$CurrentPage.url}"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                    <apex:inputField value="{!Shipment_Request__c.name}"/>
+                    <apex:inputField value="{!Shipment_Request__c.ownerid}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+    </apex:form>
+        <apex:outputPanel id="op">
+            <apex:pageBlock >
+                <apex:pageBlockSection >
+                  
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:outputPanel>
+      <apex:relatedList list="Shipment Request Details"  title="Shipment Request Details"/>
+</apex:page>

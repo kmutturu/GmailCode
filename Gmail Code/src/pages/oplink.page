@@ -1,0 +1,12 @@
+<apex:page standardController="contact" recordSetVar="contacts">
+ <apex:form >
+ <apex:datatable value="{!contacts}" var="c">
+<apex:column >
+<apex:outputLink value="/{!c.AccountId}">
+ {!c.Name}
+</apex:outputLink>
+</apex:column>
+</apex:datatable>
+ 
+ </apex:form>
+ </apex:page>

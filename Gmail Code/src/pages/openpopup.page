@@ -1,0 +1,5 @@
+<apex:page >
+  <script>
+  window.open('https://ap1.salesforce.com/home/home.jsp');
+  </script>
+</apex:page>

@@ -1,0 +1,165 @@
+<apex:component controller="Slabs_ac.SolcomAutoComplete" access="global">
+  
+     <!-- Resources -->
+     <apex:includeScript value="{!URLFOR($Resource.Slabs_ac__AutocompleteFinal,'jquery.min.js')}"/>
+     <apex:includeScript value="{!URLFOR($Resource.Slabs_ac__AutocompleteFinal,'jquery-ui-1.8.min.js')}"/>
+     <apex:stylesheet value="{!URLFOR($Resource.Slabs_ac__AutocompleteFinal,'jquery-ui.css')}"/>
+     
+    <!-- Attributes -->
+     <apex:attribute access="global" name="Object" description="Name of the object that will be used for the query" type="String" required="true" />
+     <apex:attribute access="global" name="FieldID" description="Id of the InputField to which the autocomplete makes reference" type="String" required="true" />
+     <apex:attribute access="global" name="Id" description="Unique Id for this autocomplete component" type="String" required="true" />
+     
+     <!-- Styles -->
+    <style type="text/css">
+        #sBox {  
+            width:80px; 
+            display: none;  
+            padding:1px;  
+            border:1px solid #5FBDCE;  
+            background-color:#73CEFF;  
+            position:absolute; 
+            text-align:center;
+            z-index:1;
+        }
+        
+        #sNew {  
+            width:120px;
+            text-align:center;
+            display: none;  
+            padding:1px;  
+            border:1px solid #ccc;  
+            background-color:#eee;
+            position:absolute;
+            z-index:1;
+        }
+        
+        #add{
+            color : #000;
+            font-size:90%;
+        }
+        
+        #add:hover{
+            color: #1240AB;
+        }
+    </style>
+
+    <!-- JS Magic -->
+    <script>
+        
+        var VsObject;
+        var iComplete;
+        var tFill;
+        var disable;
+        var lista;
+       
+        $(document).ready(function() {
+            disable = '{!disable}';                 
+        });
+      
+        $(document.getElementById("{!FieldID}")).keyup(function(event){
+      
+            if (event.keyCode != 40 && event.keyCode != 38 && event.keyCode != 13 && event.keyCode != 37 && event.keyCode != 39 && event.keyCode != 27){
+                if(document.getElementById("{!FieldID}").value !='' ){
+                    
+                    iComplete = document.getElementById("{!FieldID}");
+                    VsObject="{!Object}";
+                    $(document.getElementById("{!FieldID}")).autocomplete( "destroy" );
+                    $("#sNew").slideUp();                
+                    clearTimeout(tFill);                    
+                    tFill = setTimeout("Load()",500);
+                    
+                 }else if(event.keyCode == 08){
+                 
+                    clearTimeout(tFill);
+                 }
+                          
+             }
+        });
+           
+        $(document.getElementById("{!FieldID}")).focus(function(event){
+            $(document.getElementById("{!FieldID}")).autocomplete( "destroy" );
+            $('span#sNew').remove();
+            $('span#sBox').remove();
+            $(document.getElementById("{!FieldID}")).after("<span id='sBox' ><font size='1' color='white'>{!$Label.searching}</font></span>");
+        });   
+    
+    
+        $(document.getElementById("{!FieldID}")).focusout(function(event){
+            $('span#sBox').remove();
+            $(iComplete).removeAttr('disabled');
+        });
+           
+        function Load(){
+    
+            if( disable == 'true'){
+                $(iComplete).attr('disabled', 'disabled');
+            }
+                
+            $("#sBox").show(); 
+            $(iComplete).autocomplete( "destroy" );
+            fill(VsObject,iComplete.value);
+    
+        }
+   
+        function haverecord(){
+       
+            $('a','span#sNew').remove();
+        
+                if (document.getElementById("{!$Component.List}").value != ''){
+                    $("#sNew").slideUp();
+                    loadcomplete();
+                    
+               }else{
+               
+                    $(iComplete).removeAttr('disabled');
+                    $(iComplete).after("<span id = 'sNew'></span>");
+                    var ref ='/'+document.getElementById("{!$Component.ObjID}").value + '/' +'e';
+                    var LinkObj=  $('<a/>', {  
+                    id: 'add',  
+                    href:ref,  
+                    rel: 'external',
+                    text: '{!$Label.NewRecord}',
+                    target: '_blank'
+                    });
+                    $(LinkObj).appendTo('span#sNew');
+                       $("#sBox").hide();
+                    $("#sNew").show();
+            }
+        }
+  
+        function loadcomplete(){
+            $(iComplete).removeAttr('disabled');
+            $("#sBox").hide();
+            $("#sNew").slideUp(); 
+            $(iComplete).autocomplete( "close" );
+            var  src= document.getElementById("{!$Component.List}").value;
+            var complete= null;
+            src = src.replace('[','');
+            src = src.replace(']','');
+            complete = src.split(",");
+            $(iComplete).autocomplete({
+                source: complete
+            });
+            $( iComplete ).trigger( { type : 'keydown', keyCode : 40 });
+        }
+  
+    </script>
+    
+   
+    <apex:actionRegion >
+       
+        <apex:outputPanel id="object">
+            <apex:inputHidden value="{!SearchList}" id="List"/>
+            <apex:inputHidden value="{!objectID}" id="ObjID"/>
+        </apex:outputPanel> 
+        
+        <apex:actionFunction action="{!fillSource}" name="fill" rerender="object, mensaje" oncomplete="haverecord()">
+            <apex:param id="parame1" name="Sobjeto" value=" "  assignTo="{!ObjectName}"/>
+            <apex:param id="parame2" name="SearchTerm" value=" "  assignTo="{!SearchTerms}"/>
+        </apex:actionFunction>
+              
+    </apex:actionRegion>
+
+
+</apex:component>

@@ -1,0 +1,10 @@
+<apex:page controller="Settings">
+<apex:form >
+  <apex:outputlabel value="URL"/>
+  <apex:inputtext value="{!URL}"/>
+  <apex:outputlabel value="Default Status"/>
+  <apex:inputtext value="{!DefaultStatus}"/>
+  <apex:inputText value="{!SettingID}"/>
+  <apex:commandButton action="{!save}" value="Save Settings"/>
+</apex:form>    
+</apex:page>

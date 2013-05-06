@@ -1,0 +1,21 @@
+<apex:page standardController="account">
+<apex:form >
+<apex:inputField value="{!account.name}"/>
+<input type="checkbox" name="Test"  onchange="check(this)" value="Test"/>
+
+<apex:inputField id="pick" value="{!account.Active__c}"/>
+<script>document.getElementById("{!$Component.pick}").disabled=true;</script>
+<script>
+
+function check(obj)
+  {
+      
+      if(obj.checked == true)
+         document.getElementById("{!$Component.pick}").disabled=false;
+      else
+         document.getElementById("{!$Component.pick}").disabled=true;
+  }
+</script>
+</apex:form>
+ 
+</apex:page>

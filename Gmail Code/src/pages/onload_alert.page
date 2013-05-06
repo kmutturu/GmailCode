@@ -1,0 +1,11 @@
+<apex:page >
+<script>
+
+</script>
+  <apex:form >
+      <apex:commandLink value="clcik me" style="text-decoration:none" action="https://kiranmutturu-developer-edition.my.salesforce.com/home/home.jsp"/>
+      
+      
+  <apex:commandLink value="clcik me2"  action="https://kiranmutturu-developer-edition.my.salesforce.com/home/home.jsp"/>
+  </Apex:form>
+</apex:page>

@@ -1,0 +1,36 @@
+<apex:page id="page1" standardController="account">
+<script>
+
+function showValues(){
+            alert('sdfsdf');
+            //alert(document.getElementById("page1:form1:pageblock1:txtClient").value);
+            //alert(document.getElementById("page1:form1:pageblock1:txtClient").value);
+            if(document.getElementById('page1:form1:pageblock1:txtClient').value != ''){
+                if(document.getElementById('page1:form1:pageblock1:txtClient').value.indexOf(':')>-1){
+                nVal = document.getElementById('page1:form1:pageblock1:txtClient').value.split(':')[1]; 
+                //alert(nVal);
+                document.getElementById("page1:form1:pageblock1:txtClient").value = document.getElementById("page1:form1:pageblock1:txtClient").value.split(':')[0];
+                document.getElementById('page1:form1:pageblock1:hdnClient').value = nVal;
+                document.getElementById('page1:form1:pageblock1:hdnClientName').value = document.getElementById("page1:form1:pageblock1:txtClient").value.split(':')[0];          
+                }
+                //alert(document.getElementById("page1:form1:pageblock1:hdnClient").value);    
+            }//client not null  
+            else{
+                document.getElementById('page1:form1:pageblock1:hdnClient').value = '';
+                document.getElementById('page1:form1:pageblock1:hdnClientName').value = '';
+            }          
+        }
+</script>
+
+
+
+ <apex:form id="form1">
+     <apex:pageBlock id="pageblock1">
+     <apex:inputField id="txtClient" onblur="showValues();" value="{!account.name}">
+          <c:autocomplete width="180" ClassName="autocomplete" InputId="{!$Component.txtClient}" AutoCompleteId="accACid" ObjectName="Account" />     
+
+     </apex:inputfield>
+     </apex:pageBlock>
+  </apex:form>
+ 
+</apex:page>

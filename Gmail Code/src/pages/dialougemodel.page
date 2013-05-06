@@ -1,0 +1,15 @@
+<apex:page controller="edit" >
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockTable value="{!employees}" var="e">
+<apex:column headerValue="Action" >
+<apex:commandLink value="Edit" action="{!editing}" >
+<apex:param name="eid" value="{!e.id}" assignTo="{!eid}"/>
+</apex:commandLink>
+</apex:column>
+<apex:column value="{!e.name}" headerValue="Name"/>
+
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

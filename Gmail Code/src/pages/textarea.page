@@ -1,0 +1,5 @@
+<apex:page controller="add">
+<apex:form >
+ <apex:inputTextarea value="{!val}" readonly="true"/>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,120 @@
+<apex:page controller="LayeredLookupController" tabstyle="Account">
+ <script>
+   function showpopup()
+   {
+      document.getElementById('opaque').style.display='block';
+      var popUp = document.getElementById("popupcontent");
+      
+      popUp.style.display = "block";
+      
+   } 
+   
+   function hidepopup()
+   {
+      var popUp = document.getElementById("popupcontent");
+      popUp.style.display = "none";
+      document.getElementById('opaque').style.display='none';
+   }
+   
+   function fillIn(name, id)
+   {
+      var ele=document.getElementById('{!$Component.mainform.lookup.accsection.accitem.targetName}');
+      ele.value=name;
+      ele=document.getElementById('{!$Component.mainform.lookup.accsection.accitem.targetId}');
+      ele.value=id;
+      hidepopup();
+   }
+ </script>
+<style>
+
+#popupcontent{
+   position: fixed;
+   top: 10%;
+   left: 25%;
+   width: 50%;
+   height: 80%;
+   display: none;
+   overflow: auto;
+   border:3px solid #585858;
+   background-color:white;
+   //border:1px solid #333;
+   z-index:100;
+   padding:5px;
+   line-height:20px;
+}
+#opaque {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    background-color: gray;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    -moz-opacity:0.8;
+    -khtml-opacity:0.8
+}
+* html #opaque {
+    position: absolute;
+}
+</style>
+
+  <apex:form id="mainform">
+    <apex:pageBlock title="lookup" id="lookup">
+      <apex:pageBlockSection columns="1" id="accsection">
+        <apex:pageBlockSectionitem id="accitem">
+          <apex:outputLabel value="Account"/>
+          <apex:outputPanel >
+            <apex:inputHidden value="{!accountId}" id="targetId" />
+            <apex:inputText size="40" value="{!accountName}" id="targetName" onFocus="this.blur()" disabled="false"/> <a href="#" onclick="showpopup(); return false">Lookup</a>
+          </apex:outputPanel>
+        </apex:pageBlockSectionitem>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection >
+        <apex:pageBlockSectionitem >
+           <apex:commandButton value="Get Contacts" action="{!findContacts}"/>
+        </apex:pageBlockSectionitem>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+  
+  <apex:pageBlock title="Contacts">
+     <apex:pageBlockTable value="{!contacts}" var="contact">
+       <apex:column headerValue="First" value="{!contact.FirstName}"/>
+       <apex:column headerValue="Last" value="{!contact.LastName}"/>
+     </apex:pageBlockTable>
+  </apex:pageBlock>
+  
+   <div id="opaque"/>
+   <div id="popupcontent">
+  <apex:form id="form" >  
+        
+     <div style="width 100%">
+        <apex:pageBlock title="Lookup" id="block">
+           
+          <apex:pageBlockSection id="section">
+              Enter search text and click Go<br/>
+              <apex:inputText value="{!query}" id="query"/> 
+              <apex:commandButton value="Go" action="{!runQuery}" rerender="results"/>
+          </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="results">
+          <apex:pageBlockSection columns="1">
+              <apex:pageBlockTable value="{!accounts}" var="account">
+                <apex:column headerValue="Name">
+                  <apex:outputLink value="#" onclick="fillIn('{!account.Name}', '{!account.id}')">{!account.Name}</apex:outputLink>       
+                </apex:column>
+                <apex:column headerValue="Street" value="{!account.BillingStreet}"/>
+                <apex:column headerValue="City" value="{!account.BillingCity}"/>
+                <apex:column headerValue="Postcode" value="{!account.BillingPostalCode}"/>
+              </apex:pageBlockTable>    
+          </apex:pageBlockSection>
+        </apex:pageBlock>
+        <button type="button" onclick="hidepopup();">Close Window</button>
+     </div>
+   </apex:form>
+ </div>
+</apex:page>

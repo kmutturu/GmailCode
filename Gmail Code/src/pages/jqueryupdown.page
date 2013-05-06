@@ -1,0 +1,28 @@
+<apex:page >
+
+     <apex:includeScript value="{!$Resource.jquery}"  />
+<select multiple="multiple" id="select2"> 
+     <option value="1">1</option> 
+     <option value="2">2</option> 
+     <option value="3">3</option>
+</select>
+<input type="button" value="Up"/>
+<input type="button" value="Down"/>​
+
+<script>
+    
+    alert('in to script');
+$(document).ready(function(){
+    $('input[type="button"]').click(function(){
+        var $op = $('#select2 option:selected'),
+            $this = $(this);
+            alert('hai');
+        if($op.length){
+            ($this.val() == 'Up') ? 
+                $op.first().prev().before($op) : 
+                $op.last().next().after($op);
+        }
+    });
+});​
+</script>
+</apex:page>

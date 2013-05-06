@@ -1,0 +1,7 @@
+<apex:page controller="ClassToTest">
+    <apex:form >
+        <apex:dataTable value="{!Accts}" var="a" border="1">
+            <apex:column value="{!a.name}"/>
+        </apex:dataTable>
+    </apex:form>
+</apex:page>

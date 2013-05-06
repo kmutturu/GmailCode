@@ -1,0 +1,21 @@
+<apex:page id="pg" standardController="account">
+<script>
+function callme(){
+
+   alert(document.getElementById('pg:pf:pb:pbs:if').value);
+   alert(document.getElementById('pg:pf:pb:if2').value);
+}
+</script>
+<apex:form id="pf">
+    <apex:pageBlock id="pb">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!save}" value="save" onclick="callme();"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection id="pbs">
+            <apex:inputField id="if" value="{!account.name}"/>
+        </apex:pageBlockSection>
+        <apex:inputField id="if2" value="{!account.PHONE}"/>
+    </apex:pageBlock>
+</apex:form>
+
+</apex:page>

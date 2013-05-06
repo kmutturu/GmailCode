@@ -1,0 +1,4 @@
+<apex:page title="MyFirstPage"  setup="false" sidebar="false"   standardStylesheets="false"  showHeader="false">
+   <apex:iframe src="mvc" height="500" width="500"/><br/>
+   <apex:iframe src="helloworld" height="500" width="500"/>
+   </apex:page>

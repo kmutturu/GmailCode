@@ -1,0 +1,11 @@
+<apex:page controller="UploadRecordUsingCSV" >
+ <apex:form >
+  <apex:sectionHeader title="Upload Contact Records uing CSV File"/>
+  <apex:pageblock >
+    <Center>
+        <apex:inputfile value="{!FileRecords}"></apex:inputfile><apex:commandButton value="Upload File" action="{!UploadFile}"/><br/><br/>
+        <font color="Red"><b>Note:&nbsp;<a href="" target="__blank">Click Here </a>To download the Format.</b></font>
+    </Center>
+  </apex:pageblock> 
+ </apex:form>
+</apex:page>

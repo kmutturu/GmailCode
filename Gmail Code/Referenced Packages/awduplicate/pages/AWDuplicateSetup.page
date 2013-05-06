@@ -1,0 +1,342 @@
+<apex:page controller="awduplicate.AWControllerDuplicateSetup" title="{!$Label.duplicatesetup}" action="{!AddUsage}">
+<apex:sectionHeader title="{!$Label.duplicatesetup}" help="http://bit.ly/qUSHRh"/> 
+<apex:messages />
+<script> 
+
+    function awconfirmSubmit() {
+            var agree=confirm("{!$Label.areyousure}");
+            if (agree) return true ;
+            else return false ;
+        }
+        
+</script>
+<apex:tabPanel switchType="client" rendered="{!ConfigOK}">
+        <apex:tab label="{!$Label.searchkeys}">
+            <apex:form >
+                <apex:pageBlock title="{!$Label.searchkeys}">
+                {!$Label.searchkeysareneededtofindduplicatesinbat}                 
+                <br/>
+                <br/>
+                <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list ">
+                    <colgroup span="2"></colgroup> 
+                    <thead class="rich-table-thead">
+                        <tr class="headerRow ">
+                            <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.description}</th>
+                            <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.leads}</th>
+                            <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.contacts}</th>
+                            <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.accounts}</th>                              
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                            <td class="dataCell">{!$Label.lastbatch}</td>
+                            <td class="dataCell">{!LastBatchLead}</td>
+                            <td class="dataCell">{!LastBatchContact}</td>
+                            <td class="dataCell">{!LastBatchAccount}</td>
+                        </tr>
+                        <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                            <td class="dataCell">{!$Label.recreatesearchkeys}</td>
+                            <td class="dataCell"><apex:commandButton action="{!CreateLead}" value="{!$Label.recreate}" onclick="return awconfirmSubmit();" disabled="{!LeadProcess}"/></td>
+                            <td class="dataCell"><apex:commandButton action="{!CreateContact}" value="{!$Label.recreate}" onclick="return awconfirmSubmit();" disabled="{!ContactProcess}"/></td>
+                            <td class="dataCell"><apex:commandButton action="{!CreateAccount}" value="{!$Label.recreate}" onclick="return awconfirmSubmit();" disabled="{!AccountProcess}"/></td>
+                        </tr>
+                    </tbody> 
+                </table>
+                
+                </apex:pageBlock>
+            </apex:form>
+            <apex:form >
+                <apex:pageBlock Title="{!$Label.deltaprocessing}">
+                    {!$Label.afterabulkuploadordeletionofdatathesearc}                    
+                    <br/>
+                    <apex:commandButton action="{!StartDelta}" value="{!$Label.startdeltajob}" onclick="return awconfirmSubmit();" disabled="{!DeltaProcess}"/><br/>
+                    {!$Label.laststart} : {!LastBatchDelta}
+                
+                </apex:pageBlock>
+            </apex:form>
+            <apex:form >
+                <apex:pageBlock Title="{!$Label.duplicatedisablereports}" rendered="{!DisConfig}">
+                    {!$Label.iftheawtriggerreportdisableintheadvanced}                    
+                    <br/>
+                    <apex:commandButton action="{!StartDelDis}" value="{!$Label.deletedisablereports}" onclick="return awconfirmSubmit();" disabled="{!DelDisProcess}"/><br/>
+                    {!$Label.laststart} : {!LastBatchDelDis}
+                
+                </apex:pageBlock>
+            </apex:form>
+            <apex:form >
+                <apex:pageBlock Title="{!$Label.sendusagereports}" rendered="{!DisConfig}">
+                    {!$Label.ifthesettingawusagestatsdisableissetto} 
+                    <br/>                   
+                    <apex:commandButton action="{!SendUsageStats}" value="{!$Label.sendusagereports}"/><br/>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="{!$Label.advancedconfig}">
+            <apex:form >
+                <apex:pageBlock title="{!$Label.configurationoptions}">
+                    <apex:pageBlockButtons > 
+                        <apex:commandButton action="{!saveAdvConfig}" value="{!$Label.save}" rendered="{!$ObjectType.awduplicate__AWDupConfigAdv__c.Updateable}"/>
+                        <apex:commandButton action="{!UpdateAdvConfig}" value="{!$Label.updatewithanewversion}" rendered="{!$ObjectType.awduplicate__AWDupConfigAdv__c.Updateable}"/>
+                    </apex:pageBlockButtons>   
+                    <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list ">
+                      <colgroup span="2"></colgroup> 
+                      <thead class="rich-table-thead">
+                          <tr class="headerRow ">
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.field}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.value}</th>
+                          </tr> 
+                      </thead> 
+                      <tbody>
+                        <apex:repeat value="{!AdvConfigs}" var="AdvConf" id="theRepeat">
+                            <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                                <td class="dataCell">{!AdvConf.Name}</td>
+                                <td class="dataCell"><apex:inputField value="{!AdvConf.awduplicate__Value__c}"/></td>
+                             </tr>
+                        </apex:repeat>
+                      </tbody>
+                    </table>
+                </apex:pageBlock>           
+            </apex:form>
+        </apex:tab> 
+        <apex:tab label="{!$Label.leads}">
+            <apex:form >
+                <apex:pageBlock title="{!$Label.fieldweighting}">
+                    <apex:pageBlockButtons > 
+                        <apex:commandButton action="{!saveLead}" value="{!$Label.save}"/>
+                    </apex:pageBlockButtons>    
+                    <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list ">
+                      <colgroup span="2"></colgroup> 
+                      <thead class="rich-table-thead">
+                          <tr class="headerRow ">
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.field}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.searchweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.deduplicationweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.useforsearchkey}</th>                              
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.soundmatching}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">Advanced Matching</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 1</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 2</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 3</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 4</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 5 ({!$Label.default})</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 6 ({!$Label.default})</th>
+                          </tr> 
+                      </thead> 
+                      <tbody>
+                        <apex:repeat value="{!LeadConfigs}" var="cntctRec" id="theRepeat">
+                            <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                                <td class="dataCell">
+                                    <apex:selectList multiselect="false" value="{!cntctRec.awduplicate__FieldName__c}" size="1">
+                                        <apex:selectOptions value="{!LeadFields}"/>
+                                    </apex:selectList>
+                                </td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__DedupWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchKey__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SoundMatch__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__AdvancedMatching__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group1__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group2__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group3__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group4__c}"/></td>
+                                <td class="dataCell"><apex:outputField value="{!cntctRec.awduplicate__Group5__c}"/></td>
+                                <td class="dataCell"><apex:outputField value="{!cntctRec.awduplicate__Group6__c}"/></td>
+                            </tr> 
+                        </apex:repeat>
+                      </tbody>
+                    </table>
+                
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="{!$Label.contacts}">
+            <apex:form >
+                <apex:pageBlock title="{!$Label.fieldweighting}">
+                    <apex:pageBlockButtons > 
+                        <apex:commandButton action="{!saveContact}" value="{!$Label.save}"/>
+                    </apex:pageBlockButtons>    
+                    <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list ">
+                      <colgroup span="2"></colgroup> 
+                      <thead class="rich-table-thead"> 
+                          <tr class="headerRow ">
+                          	  <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.field}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.searchweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.deduplicationweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.useforsearchkey}</th>                              
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.soundmatching}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">Advanced Matching</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 1</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 2</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 3</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 4</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 5</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 6 ({!$Label.default})</th>
+                          </tr> 
+                      </thead> 
+                      <tbody>
+                        <apex:repeat value="{!ContactConfigs}" var="cntctRec" id="theRepeat">
+                            <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                                <td class="dataCell">
+                                    <apex:selectList multiselect="false" value="{!cntctRec.awduplicate__FieldName__c}" size="1">
+                                        <apex:selectOptions value="{!ContactFields}"/>
+                                    </apex:selectList>
+                                </td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__DedupWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchKey__c}"/></td>                                                              
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SoundMatch__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__AdvancedMatching__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group1__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group2__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group3__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group4__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group5__c}"/></td>
+                                <td class="dataCell"><apex:outputField value="{!cntctRec.awduplicate__Group6__c}"/></td>
+                            </tr> 
+                        </apex:repeat>
+                      </tbody>
+                    </table>
+                
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="{!$Label.accounts}">
+            <apex:form >
+                <apex:pageBlock title="{!$Label.fieldweighting}">
+                    <apex:pageBlockButtons > 
+                        <apex:commandButton action="{!saveAccount}" value="{!$Label.save}"/>
+                    </apex:pageBlockButtons>    
+                    <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list ">
+                      <colgroup span="2"></colgroup> 
+                      <thead class="rich-table-thead">
+                          <tr class="headerRow ">
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.field}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.searchweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.deduplicationweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.useforsearchkey}</th>                              
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.soundmatching}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">Advanced Matching</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 1</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 2</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 3</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 4</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 5</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 6 ({!$Label.default})</th>
+                          </tr> 
+                      </thead> 
+                      <tbody>
+                        <apex:repeat value="{!AccountConfigs}" var="cntctRec" id="theRepeat">
+                            <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                                <td class="dataCell">
+                                    <apex:selectList multiselect="false" value="{!cntctRec.awduplicate__FieldName__c}" size="1">
+                                        <apex:selectOptions value="{!AccountFields}"/>
+                                    </apex:selectList>
+                                </td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__DedupWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchKey__c}"/></td>                                                               
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SoundMatch__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__AdvancedMatching__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group1__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group2__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group3__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group4__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group5__c}"/></td>
+                                <td class="dataCell"><apex:outputField value="{!cntctRec.awduplicate__Group6__c}"/></td>
+                            </tr> 
+                        </apex:repeat>
+                      </tbody>
+                    </table>
+                
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="{!$Label.personaccounts}" rendered="{!isPerson}"> 
+            <apex:form >
+                <apex:pageBlock title="{!$Label.fieldweighting}">
+                    <apex:pageBlockButtons > 
+                        <apex:commandButton action="{!savePersonAccount}" value="{!$Label.save}"/>
+                    </apex:pageBlockButtons>    
+                    <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list ">
+                      <colgroup span="2"></colgroup> 
+                      <thead class="rich-table-thead">
+                          <tr class="headerRow ">
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.field}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.searchweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.deduplicationweighting}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.useforsearchkey}</th>                              
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.soundmatching}</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">Advanced Matching</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 1</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 2</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 3</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 4</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 5</th>
+                              <th colspan="1" scope="col" class="headerRow" width="*">{!$Label.group} 6 ({!$Label.default})</th>
+                          </tr> 
+                      </thead> 
+                      <tbody>
+                        <apex:repeat value="{!PersonAccountConfigs}" var="cntctRec" id="theRepeat">
+                            <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+                                <td class="dataCell">
+                                    <apex:selectList multiselect="false" value="{!cntctRec.awduplicate__FieldName__c}" size="1">
+                                        <apex:selectOptions value="{!PersonAccountFields}"/>
+                                    </apex:selectList>
+                                </td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__DedupWeighting__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SearchKey__c}"/></td>                                                               
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__SoundMatch__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__AdvancedMatching__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group1__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group2__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group3__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group4__c}"/></td>
+                                <td class="dataCell"><apex:inputField value="{!cntctRec.awduplicate__Group5__c}"/></td>
+                                <td class="dataCell"><apex:outputField value="{!cntctRec.awduplicate__Group6__c}"/></td>
+                            </tr> 
+                        </apex:repeat>
+                      </tbody>
+                    </table>
+                
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="{!$Label.license}">
+            <apex:form >
+                <apex:pageBlock title="{!$Label.enableenterprisefeatures}">
+                   {!$Label.currentlicensevalidthrough} : {!LicenseLength}
+                   <br/>
+                    <table cellspacing="0" cellpadding="0" border="0" id="searchResults" class="list " width="300">
+		                <colgroup span="2"></colgroup> 
+		                <thead class="rich-table-thead">
+		                    <tr class="headerRow ">
+		                        <th colspan="1" scope="col" class="headerRow" width="150">{!$Label.description}</th>
+		                        <th colspan="1" scope="col" class="headerRow" width="150">{!$Label.value}</th>
+		                    </tr> 
+		                </thead>
+		                <tbody>
+		                    <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+		                        <td class="dataCell">{!$Label.licensekey}</td>
+		                        <td class="dataCell"><apex:inputText value="{!LicenseCode}" maxlength="40" size="40" /></td>
+		                    </tr>
+		                    <tr onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}" onmouseout="if (window.hiOff){hiOff(this);} " onmouseover="if (window.hiOn){hiOn(this);} " class="dataRow even  first">
+		                        <td class="dataCell">&nbsp;</td>
+		                        <td class="dataCell"><apex:commandButton action="{!AddLicenseKey}" value="{!$Label.save}"/> </td>
+		                    </tr>      
+		                </tbody>
+		            </table>
+                    
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+</apex:tabPanel>
+<apex:form >
+    <apex:pageBlock title="{!$Label.createfirstconfig}" rendered="{!ConfigMes}">
+     	{!$Label.pleasepresscreatetocreatethenescesarryfi}     	
+        <apex:pageBlockButtons > 
+            <apex:commandButton action="{!CreateConfig}" value="{!$Label.create}"/>
+        </apex:pageBlockButtons>    
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

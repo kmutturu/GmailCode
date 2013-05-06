@@ -1,0 +1,7 @@
+<apex:page >
+    <script>
+    alert('{!$Profile.Name}');
+    </script>
+    <apex:include pageName="page1" rendered="{!if($Profile.Name == 'System Administrator',true,false)}"/>
+    <apex:include pageName="page2" rendered="{!if($Profile.Name != 'System Administrator',true,false)}"/>
+</apex:page>

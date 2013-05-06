@@ -1,0 +1,10 @@
+<apex:page standardController="Dashboard" cache="false" showHeader="false" sidebar="false" title="Auto-Refresh Dashboard">
+  <apex:iframe src="https://ap1.salesforce.com/01Z90000000PeE1" scrolling="true" />
+  <script type="text/javascript">
+    function refreshDashboard() {
+      var dashboardButton = document.getElementById("refreshButton");
+      dashboardButton.click();
+    }
+    window.setTimeout("refreshDashboard();", 60*60*1000); // refresh every 60 minutes
+  </script>
+</apex:page>

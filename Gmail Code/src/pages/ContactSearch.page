@@ -1,0 +1,37 @@
+<apex:page controller="searchcontact">
+
+<script>
+function showSpinner() {
+ 
+       var _cloneBodyCell = $(document.getElementsByTagName('body')[0]);
+ 
+       _cloneBodyCell.append("<div class=\"spinnerMask\" id=\"spinnerMask\" style=\"position:fixed;left:0;top:0;background-color:#8d8d8d;height:100%;width:100%;opacity:0.6;filter:alpha(opacity=60);z-index:999;align:center;vertical-align:middle;\"><div style=\"position: absolute; top: 35%;left:50%;opacity:1.0;filter:alpha(opacity=100);z-index:1000;background-color:#F5FCFF;width:204; height:94;border-radius:1em;border:1px solid #CEECFF;padding:20px 40px 20px 40px; \"><img src=\"/img/analytics/reportbuilder/icons/spinner32.gif\" alt=\"Processing...\" style=\"width:32; height:32; align:center;\" title=\"Processing...\" />  <p style=\"display:inline;font-size:135%;font-weight:bold;\">Processing...</p></div></div>");
+ 
+   }
+   
+   </script>
+
+    <apex:form >
+    
+   
+    
+        <apex:pageBlock >
+        
+        <apex:outputtext value="{!strEAVPageMessage}" rendered="{!if(ISBLANK(strEAVPageMessage),false,true)}"/>
+        
+           Enter Contact Name: <apex:inputText value="{!conval}"/><br/><br/>
+           <apex:commandButton action="{!search}" value="Search Contact" onclick="showSpinner();" reRender="op"/>
+       </apex:pageBlock>
+       <apex:outputPanel rendered="{!bren}" id="op">
+           <apex:pageBlock >
+               <apex:pageBlockTable value="{!cons}" var="c">
+                   <apex:column value="{!c.lastname}"/>
+                   <apex:column >
+                   <apex:outputLink value="{!$Page.CreateContact}">{!$Page.CreateContact}</apex:outputLink>
+                   </apex:column>
+               </apex:pageBlockTable>
+           </apex:pageBlock>
+       </apex:outputPanel>
+    </apex:form>
+ 
+</apex:page>

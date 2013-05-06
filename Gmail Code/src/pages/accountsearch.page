@@ -1,0 +1,22 @@
+<apex:page controller="accountsearch">
+
+        
+    <apex:form >
+        <apex:pageBlock >
+            <apex:inputText value="{!strval}"/>
+            <apex:commandButton action="{!dosearch}" value="search" reRender="op"/>
+        </apex:pageBlock>
+       <apex:outputPanel id="op">
+        <apex:outputPanel rendered="{!assig}" >
+            <apex:pageBlock >
+                <apex:pageBlockTable value="{!lstAct}" var="a">
+                    <apex:column value="{!a.name}" >
+                    </apex:column>
+                    <apex:inlineEditSupport />
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+  
+</apex:page>

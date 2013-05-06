@@ -1,0 +1,9 @@
+<apex:page standardController="account">
+
+<apex:form >
+    <apex:pageBlock >
+        <apex:outputField value="{!account.ownerid}"/>
+    </apex:pageBlock>
+</apex:form>
+
+</apex:page>

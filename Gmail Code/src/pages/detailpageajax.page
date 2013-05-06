@@ -1,0 +1,28 @@
+<apex:page controller="MyController" tabStyle="Unit_code__c">
+    <apex:pageBlock title="Hello {!$User.FirstName}!">
+        You are displaying People from the app.
+        Click a person's name to view his or her details.
+    </apex:pageBlock>
+    <apex:pageBlock title="People">
+        <apex:form >
+            <apex:dataTable value="{!people}" var="aPerson" width="100%">
+                <apex:column >
+                    <apex:facet name="header">
+                        <b>Name</b>
+                    </apex:facet>
+                    <apex:commandLink action="{!invokeService}" value="{!aPerson.name}" rerender="resultPanel">
+                        <apex:param name="cid" value="{!aPerson.id}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">
+                        <b>Number</b>
+                    </apex:facet>{!aPerson.status__c}
+                </apex:column>
+            </apex:dataTable>  
+        </apex:form>
+    </apex:pageBlock>
+    <apex:outputPanel id="resultPanel" layout="block">
+        <apex:detail subject="{!$CurrentPage.parameters.cid}" relatedList="false" title="false"/>
+    </apex:outputPanel>
+</apex:page>

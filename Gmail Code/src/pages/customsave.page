@@ -1,0 +1,10 @@
+<apex:page controller="customsave">
+  
+  <apex:form >
+  
+  Name : <apex:inputtext value="{!strname}"/>
+  
+  <apex:commandButton value="save" action="{!save}"/>
+  </apex:form>
+  
+</apex:page>

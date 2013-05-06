@@ -1,0 +1,26 @@
+<apex:page standardController="account"  recordSetVar="accounts">
+     <apex:form >
+         <apex:pageBlock title="Accounts Block">
+             <apex:pageBlockButtons location="bottom">
+                 <apex:commandButton action="{!save}" value="save"/>
+             </apex:pageBlockButtons>
+             <apex:pageBlockSection title="Account Properties">
+                 <apex:pageBlockSectionItem >
+                 Name of account :<apex:inputField value="{!account.name}"/>
+                
+                 </apex:pageBlockSectionItem>
+                 <apex:pageBlockTable value="{!accounts}" var="acct" >
+                     <apex:column >
+                     <apex:outputLink value="{!acct.name}">{!acct.name}</apex:outputLink> 
+                     </apex:column>
+                     <apex:column >
+                     <apex:outputField value="{!acct.phone}">
+                     <apex:inlineEditSupport />
+                     </apex:outputfield>
+                     </apex:column>
+                     <apex:column value="{!acct.accountnumber}"/>
+                 </apex:pageBlockTable>
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+     </apex:form>
+</apex:page>

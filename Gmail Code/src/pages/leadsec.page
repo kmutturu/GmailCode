@@ -1,0 +1,15 @@
+<apex:page standardController="lead" extensions="leadclass">
+
+<apex:form >
+
+    <apex:pageMessage summary="No records to display" severity="info" rendered="{!blren}" strength="1" ></apex:pageMessage>
+        <apex:dataTable value="{!Campigns}" var="a" width="100">
+        
+        <apex:column value="{!a.campaign.name}" width="50"/>
+        <apex:column value="{!a.campaignid}" width="30"/>
+        <apex:column value="{!a.campaign.status}" width="20"/>
+        </apex:dataTable>
+    
+    
+</apex:form>
+  </apex:page>

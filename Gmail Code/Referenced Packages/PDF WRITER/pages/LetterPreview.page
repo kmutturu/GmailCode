@@ -1,0 +1,238 @@
+<apex:page id="page" controller="pdfw.LetterCtr" title="{!$Label.Letter_Subtitle}" action="{!Init}" renderAs="{!a_Pdf}" standardStylesheets="true" showHeader="{!!a_PdfRender}" >
+<apex:form >
+
+    <apex:actionFunction name="test3" action="{!Rendering}" />
+    <apex:actionFunction name="test4" action="{!AddPdf}" />
+    <apex:actionFunction name="SendMail" action="{!SendMail}" />
+    <apex:actionFunction name="AddFooterText" action="{!AddFooter}"/>
+
+<apex:outputpanel id="page1">
+<apex:outputpanel rendered="{!!a_PdfRender}">
+    <apex:outputPanel rendered="{!a_IdError}">
+        <apex:pageMessage summary="{!$Label.Letter_IdError}" severity="error" strength="3" />
+    </apex:outputPanel>
+    <apex:outputpanel rendered="{!!a_IdError}">
+    <style>
+    .letterContainer
+    {
+        padding:10px;
+        width:820px;
+        background-color:#FFF;
+        border:1px solid #000;
+    }
+    
+    .topSpace
+    {
+        padding-top:80px;
+    }
+    
+    .link
+    {
+        text-decoration: none;
+    }
+    
+    .link:hover
+    {
+        text-decoration: none;
+    }
+    
+    .date
+    {
+        padding-top:50px;
+    }
+    
+    .subject 
+    {
+        padding-top:20px;
+    }
+    .ProductForce, .ProductForce a
+    {
+        font-family: Arial;
+        font-size: 9pt;
+        color: #a0a0a0;
+    }
+    .ProductForce img
+    {
+        vertical-align: middle;
+    }
+    </style>
+    
+    <div style="width: 870px;">
+    
+        <apex:sectionHeader title="{!$Label.Letter_Title}" subtitle="{!$Label.Letter_Subtitle}"/>
+
+        
+            <apex:messages styleClass="message errorM2" />
+            <apex:outputPanel id="emailToCustomer">
+                
+            </apex:outputPanel>
+            <apex:pageBlock >
+            
+                <apex:pageBlockButtons >                
+                    <apex:commandButton action="{!Cancel}" value="{!$Label.Letter_Back}" />
+                     
+                    <apex:commandLink action="{!Pdf_Preparer}"  target="_blank" styleClass="link">                  
+                        <apex:commandButton onclick="" value="{!$Label.Letter_ShowPDF}" disabled="{!a_ShowButtons}" />
+                    </apex:commandLink>
+                    
+                    <apex:commandButton action="{!Pdf_Saving}" value="{!$Label.Letter_Save}" disabled="{!a_ShowButtonSave}" />
+                    <apex:outputPanel rendered="{!a_ShowSendMailButton}">
+                        <apex:commandButton action="{!Pdf_EmailSend}" value="{!$Label.Letter_SendEmail}" disabled="{!a_RenderedMailButton}" />
+                    </apex:outputPanel>
+                    
+                    
+                </apex:pageBlockButtons> 
+                <apex:outputpanel >
+                    <div class="letterContainer">
+                        <div class="topSpace"></div>                
+                        <div style="width: 7cm;">   
+                        
+                            <apex:inputText value="{!a_AddressField}"  />&nbsp;
+                            <img class="helpIcon" src="/s.gif" alt="" title="{!$ObjectType.LetterSettings__c.Fields.Letter_Remark__c.inlineHelpText}"/>
+
+                            
+                            <br/>
+                            
+                            <apex:outputPanel rendered="{!IF(a_Salutation != '', true, false)}">
+                                <apex:outputText value="{!a_Salutation}" />&nbsp;
+                            </apex:outputPanel>         
+                            <apex:outputText value="{!a_FirstName}" />&nbsp;<apex:outputText value="{!a_LastName}" /><br/>
+                            
+                            <apex:outputText value="{!a_Company}" /><br/>
+                            <apex:outputText value="{!a_Address}"/><br/>
+                            <apex:outputpanel rendered="{!IF(a_PostalCode == '', false, true)}">
+                                <apex:outputText value="{!a_PostalCode}" />&nbsp;
+                            </apex:outputpanel>
+                            <apex:outputText value="{!a_City}" /><br/>
+                            <apex:outputText value="{!a_State}" />&nbsp;<apex:outputText value="{!a_Country}" />
+                        </div>
+                        <div class="date" align="right" >
+                            <img class="helpIcon" src="/s.gif" alt="" title="{!$ObjectType.LetterSettings__c.Fields.Date_Text__c.inlineHelpText}"/> &nbsp;
+                            <apex:inputText value="{!a_Date_Text}" />                       
+                        </div>      
+                        <div class="subject">
+                            <apex:inputText value="{!a_Subject}" style="width:600px;font-weight:bold;" />&nbsp;
+                            <img class="helpIcon" src="/s.gif" alt="" title="{!$ObjectType.LetterSettings__c.Fields.Letter_Subject__c.inlineHelpText}"/>    
+                        </div>
+                        <div class="subject">
+                            <apex:inputText value="{!a_formOfAddress}" style="width:600px" />&nbsp;
+                            <img class="helpIcon" src="/s.gif" alt="" title="{!$ObjectType.LetterSettings__c.Fields.Letter_Understanding__c.inlineHelpText}"/> 
+                        </div>  
+                        <br/>
+                        <br/>
+                        <apex:selectList value="{!a_FirstSelected}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!TextTopBausteine}"/>  
+                        </apex:selectList>
+                        &nbsp;
+                            <apex:commandButton value="{!$Label.Letter_Add}" action="{!AddText}">   
+                                <apex:actionSupport event="onclick" rerender="Textbaustein" focus="j_id0:j_id3:j_id4:inputArea___Config" />                         
+                            </apex:commandButton>
+                            <img class="helpIcon" src="/s.gif" alt="" title="{!$Label.Letter_BodyHelp}"  align="right"/>
+                        <apex:outputPanel id="Textbaustein">                    
+                            <div Id="body">
+                                
+                                <apex:inputTextArea value="{!a_Text}" richText="true" style="width:810px; height:200px;" id="inputArea" rows="20" />
+                            </div>
+                        </apex:outputPanel>
+                        <div style="padding-top:20px" id="testId">
+                            <apex:inputText value="{!a_ComplimentaryClose}"  style="width:600px"/>&nbsp;
+                            <img class="helpIcon" src="/s.gif" alt="" title="{!$ObjectType.LetterSettings__c.Fields.Letter_Understanding__c.inlineHelpText}"/>
+                        </div>                  
+                        <br/>
+                        <br/>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td><apex:inputText value="{!a_CustomerName}" /></td>
+                                    <td><apex:inputText value="{!a_UserName}" /></td>                               
+                                </tr>
+                                <tr>
+                                    <td><apex:inputText value="{!a_CustomerPos}" /></td>
+                                    <td><apex:inputText value="{!a_UserPos}" /></td>                                                        
+                                </tr>
+                            </table>                    
+                        </div>  
+                        <br/>
+                        <br/> 
+                        <apex:selectList value="{!a_SecSelected}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!TextBottomBausteine}"/>  
+                        </apex:selectList>
+                        &nbsp;
+                        <apex:commandButton value="{!$Label.Letter_Add}" action="{!AddFooter}" >    
+                            <apex:actionSupport event="onclick" focus="FooterText" rerender="Textbaustein" />                           
+                        </apex:commandButton> 
+                        <img class="helpIcon" src="/s.gif" alt="" title="{!$Label.Letter_FooterTextHelp}"  align="right"/>
+                        <apex:outputPanel id="FooterText">                  
+                            <div Id="body">
+                                <apex:inputTextArea value="{!a_FooterText}" richText="true" style="width:810px; height:200px;" rows="8" />
+                            </div>
+                        </apex:outputPanel>                                                                                     
+                    </div>
+                </apex:outputpanel>
+                <br/>
+            </apex:pageBlock>
+            <div class="ProductForce">
+                <apex:outputText value="PDF WRITER by "/> <apex:image id="Logo" value="{!$Resource.pdfw__ProductForce_Logo}" /><br/>
+                <apex:outputText value="Use of this application is offered under license by ProductForce and is subject to the " /><apex:outputLink value="http://www.productforce.de/pdfwriter-useragreement"><apex:outputText value="User Agreement." /></apex:outputLink>&nbsp;<apex:outputLink value="http://www.productforce.de/pdfwriter-support"><apex:outputText value="Questions?" /></apex:outputLink>
+            </div>
+    </div>
+    </apex:outputpanel>
+</apex:outputpanel>
+<apex:outputPanel id="renderPanel">
+    <apex:outputPanel rendered="{!a_PdfRender}">
+        <head>
+            <style>
+                .loadingDivClass
+                {
+                    font-family:Arial, Helvetica, sans-serif;
+                    margin:0;
+                    position:absolute;
+                    top: 40%;
+                    left: 40%;
+                    font-size: 12px;
+                    color:#4a4a56;
+                    font-weight:bold;
+                    background-color: white;
+                    -moz-border-radius:5px;
+                    -khtml-border-radius:5px;               
+                    overflow: hidden;
+                    border: 1px solid #acacac;
+                    padding: 16px;
+                    box-shadow:2px 2px 2px #666;    
+                }
+                #test
+                {
+                    display:none;
+                }       
+            </style>
+        </head>
+        <div id="loadingDiv" style="" class="loadingDivClass">
+            <apex:image id="theImage" value="/img/loading.gif" />&nbsp;{!$Label.Letter_Wait}
+        </div>  
+        <div id="test">
+            <apex:repeat value="{!a_HtmlTemplate}" var="a">
+                <apex:outputText value="{!a}"  />
+            </apex:repeat>
+        </div>
+    </apex:outputPanel> 
+</apex:outputPanel> 
+</apex:outputpanel>
+<script type="text/javascript">
+    window.onload = function()
+    {
+        if({!a_Checkbox} == true)
+        {
+            window.setTimeout("test3()", 0);
+        }
+        if({!a_SaveCheck} == true)
+        {
+            window.setTimeout("test4()", 0);
+        }
+        if({!a_SendMail} == true)
+        {
+            window.setTimeout("SendMail()", 0); 
+        }
+    } 
+</script>
+</apex:form>
+</apex:page>

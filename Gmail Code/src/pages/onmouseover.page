@@ -1,0 +1,42 @@
+<apex:page standardController="account" recordSetVar="accounts">
+  <script>
+  function HideSection(){
+      alert(opid.style.display);
+      opid.style.display = 'none';
+  }
+  </script>
+  <apex:form >
+    
+        <apex:pageBlock title="Account">
+        
+            <apex:pageblockSection title="List Of Accounts">
+            
+                <apex:pageBlockTable value="{!accounts}" var="acct" rows="5">
+                
+                
+                    <apex:column headerValue="Account Names">
+                    
+                    {!acct.name}
+                    
+                    <apex:actionSupport event="onmouseover" status="act" reRender="op">
+                    
+                    <apex:param name="aid" value="{!acct.id}"/>
+                    
+                    </apex:actionSupport>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+        <apex:actionStatus startText="Please Wait ...Loading.........." id="act"/>
+       <apex:commandbutton id="hidebtn" value="Hide" onclick="HideSection()" rerender="null"  />
+       <!-- <input type="button" id="hidebtn" value="Hide" onclick="HideSection()" />-->
+        <apex:outputPanel id="op" layout="block">
+        <apex:detail subject="{!$CurrentPage.parameters.aid}" relatedList="true"/>
+        </apex:outputPanel>
+        <script>
+        var opid = document.getElementById('{!$Component.op}');
+        </script>
+        <apex:outputPanel id="dummy"></apex:outputPanel>
+  </apex:form>    
+  
+</apex:page>

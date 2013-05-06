@@ -1,0 +1,5 @@
+<apex:page id="mypage" controller="ClassUsingSOQL">
+	<apex:form >
+		Total Amount of All the accounts is: {!ListOfAccounts}	
+	</apex:form>
+</apex:page>

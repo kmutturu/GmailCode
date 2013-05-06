@@ -1,0 +1,70 @@
+<apex:page doctype="HTML-5.0" standardController="Opportunity">
+<html>
+<head>
+<script type="text/Javascript">
+function notEmpty(){
+alert("dfsdfsfs");
+var myTextField = document.getElementById('txt1');
+if(myTextField.value != "")
+alert("You entered: " + myTextField.value);
+else
+alert("Would you please enter some text?");
+}
+</script>
+</head>
+<body>
+<form>
+<table>
+<tr>
+<td>
+Opportunity Name:</td>
+<td>
+<input id="txt1" type="text"/></td>
+</tr>
+<tr>
+<td>
+Amount:</td>
+<td>
+<input type="Text"/></td>
+</tr>
+<tr>
+<td>
+Close Date:</td>
+<td>
+<input Type="Text"/></td>
+</tr>
+<tr>
+<td>
+Type:</td>
+<td>
+<Input type="Text"/></td>
+</tr>
+<tr>
+<td>
+Account Name:</td>
+<td>
+<Input type="Text"/></td>
+</tr>
+<tr>
+<td>
+Stage:</td>
+<td>
+<Input Type="Text"/></td>
+</tr>
+<tr>
+<td>
+Forecast Category:</td>
+<td>
+<Input Type="text" /></td>
+</tr>
+<tr>
+<Input type="button" value="Click Me" onclick="notEmpty()" />
+</tr>
+</table>
+</form>
+</body>
+</html>
+<apex:form >
+<apex:commandbutton value="Save" action="{!save}" onclick="notEmpty()" />
+</apex:form>
+</apex:page>

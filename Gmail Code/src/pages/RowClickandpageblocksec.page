@@ -1,0 +1,35 @@
+<apex:page standardcontroller="account" recordsetvar="accounts"
+    showHeader="false">
+    <apex:form >
+        <apex:pageblock >
+        <img src="/s.gif" alt="Hide Section - List of Accounts" class="hideListButton" id="imgg" name="List of Accounts" onclick="closethis();" style="cursor:pointer;" title="Hide Section - List of Accounts"/>
+            <apex:outputPanel layout="block" id="op"> 
+            <script>
+            var opid = document.getElementById('{!$Component.op}');
+            opid.style.display = 'none';
+            </script>
+                <apex:pageblocktable value="{!accounts}" var="a">
+                    <apex:column >
+                        {!a.name}
+                        <apex:actionSupport event="onclick" status="act" reRender="op">
+                            <apex:param name="aid" value="{!a.id}" />
+                        </apex:actionSupport>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:outputPanel>
+        </apex:pageblock>
+        <apex:actionStatus starttext="Loading......" id="act" />
+        <apex:outputpanel id="op" title="Account Detail Page">
+            <apex:detail subject="{!$CurrentPage.parameters.aid}"
+                relatedlist="false" />
+        </apex:outputpanel>
+    </apex:form>
+    <script>
+    function closethis(){
+        if(opid.style.display != 'inline')
+            opid.style.display = 'inline';    
+        else
+            opid.style.display = 'none'
+    }
+    </script>
+</apex:page>

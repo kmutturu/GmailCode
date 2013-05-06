@@ -1,0 +1,20 @@
+<!--
+/*Page Name: Leads
+* Author : Charan & Jaya Lakshmi
+* Date : 05th Feb 2011
+* Purpose:This page is used whenever the user clicks on Bulk sms button a poup is generated with list of 
+leads user selected and subject with text area field. Enter your text in the text box provided and
+click on send button
+* Modification History :
+*/-->
+<!-- Start of Contacts Page-->
+<apex:page controller="SendLeadBulkSms" showHeader="false" sidebar="false" id="page">
+    <apex:form style="align:center" id="form" >
+    
+    <!-- Start of Component-->
+        <c:LeadSMScomp />
+    <!-- End of Component-->
+    
+    </apex:form>  
+</apex:page>
+<!-- End of Contacts Page-->

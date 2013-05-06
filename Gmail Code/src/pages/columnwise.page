@@ -1,0 +1,10 @@
+<apex:page controller="columnwise">
+  
+  
+  <apex:form >
+      <apex:dataTable value="{!lstnames}" var="z" rows="3">
+          <apex:column value="{!z.name}"/>
+      </apex:dataTable>
+  </apex:form>
+  
+</apex:page>

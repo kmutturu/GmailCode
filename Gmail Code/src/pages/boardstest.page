@@ -1,0 +1,34 @@
+<apex:page controller="contactController" showHeader="true" tabStyle="Contact">
+<apex:form >
+
+    <select id="selection">
+      <option value="Detail">Detail</option>
+      <option value="List">List</option>
+    </select>
+
+  
+    <apex:dataTable value="{!contacts}" var="c" cellpadding="4" border="1">
+      <apex:column >
+        <apex:facet name="header"><b>Name</b></apex:facet>
+        
+        <apex:commandLink reRender="detail">{!c.name}
+          <apex:param name="id" value="{!c.id}"/>
+        </apex:commandLink>
+      </apex:column>
+      
+      <apex:column >
+        <apex:facet name="header"><b>Account Name</b></apex:facet>
+        {!c.account.name}
+      </apex:column>
+    </apex:dataTable>
+  </apex:form>
+  
+  <apex:outputPanel id="detail" >
+    <apex:detail subject="{!contact}" title="false" relatedList="false"/>
+  </apex:outputPanel>
+  
+  <apex:outputPanel id="list">
+     <apex:relatedList list="ActivityHistories"  subject="{!contact}"/>
+  </apex:outputPanel>  
+  
+</apex:page>

@@ -1,0 +1,6 @@
+<apex:page standardController="account">
+  <apex:form >
+      <apex:outputLink value="https://www.salesforce.com">Salesforce</apex:outputLink>
+      <apex:inputField value="{!account.name}"/>
+  </apex:form>
+</apex:page>

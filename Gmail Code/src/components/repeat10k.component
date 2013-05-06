@@ -1,0 +1,14 @@
+<apex:component controller="Repeat10KController">
+ <apex:attribute name="var" type="Object" description="The variable to represent a single var in the iteration." required="true"/>
+ <apex:attribute name="collection" description="collection to iterate" type="object[]" required="true"
+     assignTo="{!userCollection}" />
+
+<apex:repeat var="lstOfObjs" value="{!wrappedCollection}">
+    <apex:repeat value="{!lstOfObjs}" var="rec">
+        <apex:componentBody >
+            <apex:variable var="{!var}" value="{!rec}"/>     
+        </apex:componentBody>    
+    </apex:repeat>
+</apex:repeat>
+
+</apex:component>

@@ -1,0 +1,30 @@
+<apex:page controller="TwitterController">
+<apex:form >
+
+<apex:outputPanel layout="block" id="login" rendered="{!needsLogin}">
+<b>Twitter Login</b><br/>
+<table border='0'>
+<tr><td>Username : </td><td><apex:inputText value="{!username}"/></td></tr>
+<tr><td>Password : </td><td><apex:inputSecret value="{!password}"/></td></tr>
+<tr><td>&nbsp;</td><td><apex:commandButton value="login"/></td></tr>
+</table>
+</apex:outputPanel>
+
+<apex:outputPanel layout="block" id="status" rendered="{!hasLogin}">
+<table cellspacing='2' cellpadding='2' border='0'>
+<tr><td colspan='2'>What are you doing?<br/>
+<apex:inputText value="{!newUpdateText}" size="40" maxlength="140"/>&nbsp;<apex:commandButton value="update" action="{!postUpdate}"/>
+</td></tr>
+
+<apex:repeat value="{!friendsTimeline}" var="s">
+    <tr><td><img src="{!s.user.profileImageUrl}"/>
+    </td><td>
+    <b><apex:outputText value="{!s.user.name}"/></b><br/>
+    <apex:outputText value="{!s.text}"/>
+    </td></tr>
+</apex:repeat>
+</table>
+</apex:outputPanel>
+
+</apex:form>
+</apex:page>

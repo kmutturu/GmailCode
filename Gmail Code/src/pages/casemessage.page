@@ -1,0 +1,3 @@
+<apex:page standardController="case">
+<apex:pageMessage severity="info" summary="Case description should be max 15 chars"></apex:pageMessage>
+</apex:page>

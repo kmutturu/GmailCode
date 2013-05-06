@@ -1,0 +1,9 @@
+<apex:page standardController="Account" renderAs="pdf" standardStylesheets="false">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!Account.contacts}" var="f">
+                <apex:column value="{!f.lastname}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

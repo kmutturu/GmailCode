@@ -1,0 +1,11 @@
+<apex:page standardController="account" showHeader="false" standardStylesheets="false">
+ 
+  <meta name="viewport" content="width=320; initial-scale=1.0; 
+      maximum-scale=1.0; user scalable=0;"/>
+       <apex:form >
+      Account Name:   <apex:inputField value="{!account.name}"/><br/>
+      <apex:commandButton action="{!save}" value="save"/>
+       
+      
+  </apex:form>
+</apex:page>

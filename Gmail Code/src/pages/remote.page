@@ -1,0 +1,33 @@
+<apex:page controller="MyJSController">
+	<script type="text/javascript">
+function getAccountJS() {
+var accountNameJS = document.getElementById('account-name-js').value;
+MyJSController.getAccount( accountNameJS, function(result, event){
+if (event.status) {
+// demonstrates how to get ID for HTML and Visualforce tags
+document.getElementById('accid')
+.innerHTML = result.Phone
+document.getElementById("{!$Component.theBlock.thePageBlockSection.theSecondItem.accEmployees}")
+.innerHTML = result.NumberOfEmployees;
+} else if (event.type === 'exception') {
+document.getElementById("errors-js").innerHTML = event.message;
+} else {
+document.getElementById("errors-js").innerHTML = event.message;
+}
+}, {escape:true});
+}
+</script>
+	<input id="account-name-js" type="text" />
+	<button onclick="getAccountJS()">Get Account</button>
+	<div id="errors-js"></div>
+	<apex:pageBlock id="theBlock">
+		<apex:pageBlockSection id="thePageBlockSection" columns="2">
+			<apex:pageBlockSectionItem id="theFirstItem">
+				<span id="accid" />
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem id="theSecondItem">
+				<apex:outputText id="accEmployees" />
+			</apex:pageBlockSectionItem>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

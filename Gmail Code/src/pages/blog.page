@@ -1,0 +1,46 @@
+<apex:page showHeader="false" controller="blogController">
+<head>
+<style type="text/css">
+html body #header { margin-top:0px;
+font-family:"trebuchet MS", helvetica; }
+a.title, a.title:hover {color:#f60;text-decoration:none;}
+#header a, #header a:hover {font-size: 26px; color: #fff; text-decoration:none;}
+#header .right {float: right;font-size: 18px; color:#258;}
+.sub{font-size:11px;text-align:right;}
+input.groovybutton { font-size:12px;
+width:85px; height:30px;
+border-style:ridge;
+border-color:#643200; }
+</style>
+
+<link rel="stylesheet" type="text/css" href="http://www.blogger.com/css/blogger.css" />
+</head>
+<div id="body">
+<div id="main-wrap" >
+<div id="main" style="margin-top:5px" >
+<div id="m2">
+<div id="m3">
+
+<apex:repeat value="{!Posts}" var="post">
+
+<h2 id="title">
+<a class="title" href="/apex/blogedit?id={!post.Id}" target="_top">
+{!post.Name}</a></h2>
+<br />
+
+<script type="text/javascript">
+document.write('{!post.Post__c}');
+</script>
+
+<p class="sub">
+Posted by {!post.CreatedBy.Name} on {!post.CreatedDate}</p>
+
+</apex:repeat>
+<center>
+<apex:form >
+<apex:commandButton styleclass="groovybutton" value="New Post" action="{!handleNewPostClick}"/>
+</apex:form>
+</center>
+</div></div></div></div></div>
+
+</apex:page>

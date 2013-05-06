@@ -1,0 +1,91 @@
+<apex:component controller="dynl.DynLookup" selfClosing="true" access="global" id="DynComp">
+    
+   <!--<apex:styleSheet value="http://yui.yahooapis.com/2.6.0/build/assets/skins/sam/skin.css" />
+
+   <apex:includeScript value="http://yui.yahooapis.com/2.6.0/build/yahoo-dom-event/yahoo-dom-event.js" />
+   <apex:includeScript value="http://yui.yahooapis.com/2.6.0/build/container/container-min.js" />
+   <apex:includeScript value="http://yui.yahooapis.com/2.6.0/build/animation/animation-min.js" />-->
+    
+    <apex:stylesheet value="{!URLFOR($Resource.dynl__css, 'LovCss/skin.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.dynl__css, 'LovCss/yahoo-dom-event.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.dynl__css,'LovCss/container-min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.dynl__css, 'LovCss/animation-min.js')}"/>
+
+
+   <script>
+        YAHOO.namespace("force.com");
+
+        YAHOO.force.com.showMe = function()
+                                 {
+                                    document.getElementById("myPanel2").style.display = "block";
+                                    YAHOO.force.com.myDialog2.show();
+                                 }
+
+        YAHOO.force.com.hideMe = function()
+                                 {
+                                   YAHOO.force.com.myDialog2.hide();
+                                 }
+
+        YAHOO.force.com.init = function()
+                               {
+                                  document.body.className = document.body.className+" yui-skin-sam";
+
+                                  YAHOO.force.com.myDialog2 = new YAHOO.widget.Panel(
+                                                                        "myPanel2",
+                                                                         { width       : 300,                                                                           
+                                                                           visible     : false,
+                                                                           xy          : [350,50],
+                                                                           draggable   : true,
+                                                                           close       : true,
+                                                                           modal       : true,                                                                           
+                                                                           zindex      : 200,
+                                                                           effect      : { effect:YAHOO.widget.ContainerEffect.FADE,
+                                                                                           duration: 0.10
+                                                                                         }
+                                                                          }
+                                                                        );
+                                  YAHOO.force.com.myDialog2.render(document.body);
+                               }
+        YAHOO.util.Event.addListener(window,"load",YAHOO.force.com.init);                                                                          
+    </script>
+
+    <apex:attribute name="fieldLabelName" description="This is the Field Label Name" type="String" access="global" required="true" />        
+    <apex:attribute name="LovName" description="This is the name, in which he saved his Query" required="true" access="global" type="Object" assignTo="{!LovName}"/>
+
+    <apex:panelGroup id="appblk">
+        <apex:outputLabel value="{!fieldLabelName}" style="vertical-align :middle" for="text"/> &nbsp;
+        <apex:inputText id="text" value="{!TextName}" style="vertical-align :bottom; width: 20%"/> &nbsp;
+        <apex:commandButton value="LOV" image="{!$Resource.dynl__searchIcon}" rerender="popupblk, labelId"
+              style="height:13px;vertical-align:bottom" oncomplete="YAHOO.force.com.showMe();">
+        </apex:commandButton>
+    </apex:panelGroup>
+
+    <div id="myPanel2" style="display: none">
+        <div class="hd">
+          <apex:outputText value="{!PopupWindowTitle}"/>
+        </div>
+        <div style="height: 400px; width: 300px; overflow: auto;">            
+            <apex:pageBlock id="popupblk">
+               <apex:outputpanel id="keyvalue">
+                   <apex:pageBlockTable columns="2" value="{!ListOfVals}" var="item" id="Table">
+                       <apex:column >                      
+                           <apex:commandLink oncomplete="YAHOO.force.com.hideMe();" rendered="true" rerender="text"> 
+                               <apex:outputText value="{!item[firstColumn]}" />
+                               <apex:param name="lky2" value="{!item[firstColumn]}" assignTo="{!TextName}"/>
+                           </apex:commandLink>
+                           <apex:facet name="header">{!firstColumn}</apex:facet>     
+                      </apex:column>
+                      <apex:column >                                           
+                           <apex:outputText value="{!item[secondColumn]}" />                                                 
+                           <apex:facet name="header">{!secondColumn}</apex:facet>     
+                      </apex:column>
+                   </apex:pageBlockTable> <br />
+               </apex:outputpanel>
+               <div style="text-align : right;">                    
+                   <apex:commandButton value="Cancel" immediate="true" oncomplete="YAHOO.force.com.hideMe();" />
+               </div>
+            </apex:pageBlock>                             
+        </div>
+    </div>  
+  
+</apex:component>

@@ -1,0 +1,7 @@
+<apex:page standardController="CSO__c" recordSetVar="CSOPP" >
+ <apex:pageBlock >
+     <apex:pageBlockTable value="{!CSOPP}" var="a">
+         <apex:column value="{!a.Yes__c}"/>
+     </apex:pageBlockTable>
+ </apex:pageBlock>
+</apex:page>

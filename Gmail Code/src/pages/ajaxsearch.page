@@ -1,0 +1,109 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" title="AJAX Development Harness" controller="exampleCon">
+<style>
+body {font-family: Verdana;}
+.apexTable { width: 600px;}
+.evenTableRow {background-color: #eee;}
+.defaultHidden {display: none;}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js">script>
+    <h3>Using JQuery and JSON with Visualforceh3>
+    <apex:form >
+        <apex:actionFunction name="apex_searchAccounts" action="{!SearchAccounts}" immediate="true" rerender="searchResultsPanel">
+            <apex:param name="searchTerm" value="" />
+       </apex:actionFunction>
+        <apex:actionFunction name="apex_getAccountDetails" action="{!GetAccountDetails}" immediate="true" rerender="accountDetailsPanel">
+            <apex:param name="accountid" value="" />
+       </apex:actionFunction>
+    </apex:form>
+   
+    Enter Account Name: <input type="text" id='accountInput' /> (type the letters 'uni' to test)<br/>
+    <div id="accountsListView" class="view">div>
+    <div id="accountDetailsView" class="view defaultHidden">div>
+                 
+    <script type="text/javascript">
+        $(function() {
+            $("#accountInput")
+                .focus()
+                .keyup( function (e) {
+                    var searchTerm = $("#accountInput").val();
+                    if( searchTerm != ''){
+                        apex_searchAccounts(searchTerm);
+                    }
+            });
+             
+            $(".accountDetailsLink").live('click', function() {
+                apex_getAccountDetails( $(this).attr('id') );
+            });
+        });
+       
+        function clearAllViews(){
+            $(".view").html('');           
+        }
+       
+        function renderAccountsListView(accounts){         
+            if(accounts.length === 0){
+                $("#accountsListView").html("no accounts matching that query").fadeIn();
+                return;
+            }
+            var tableHTML = '';
+            for(var i=0; i < accounts.length; i++){
+                tableHTML += '';
+            }
+            tableHTML += '
++ accounts[i].id + '" href="#" class="accountDetailsLink">' + accounts[i].name + '';
+            $("#accountsListView").html(tableHTML).fadeIn();
+            $("table tr:nth-child(even)").addClass("evenTableRow");
+        }
+       
+        function renderAccountDetailView(account){         
+            var tableHTML = '
+Account Details for ' + account.name + '';
+            tableHTML += '';         
+            tableHTML += '';
+            tableHTML += '';
+            tableHTML += '';
+            tableHTML += '';           
+            tableHTML += '
+Name    ' + account.name + '
+Type    ' + account.type + '
+Description ' + account.description + '
+Website + account.website + '" target=_blank>' + account.website + '';           
+            $("#accountDetailsView").hide().html(tableHTML).slideDown();
+            $("table tr:nth-child(even)").addClass("evenTableRow");
+        }
+    </script>
+    <apex:outputPanel id="searchResultsPanel" layout="block" rendered="true">
+        <script>
+        function apex_searchAccounts_callback(jsonResponse){           
+            if(jsonResponse === null || jsonResponse === ''){
+                return;
+            }
+           
+            var accounts;
+            eval('accounts = ' + jsonResponse);
+            if(accounts !== null){
+                renderAccountsListView(accounts);
+            }
+        }
+        clearAllViews();
+        apex_searchAccounts_callback('{!JSONSearchAccounts}');
+        </script>
+    </apex:outputPanel>    
+   
+    <apex:outputPanel id="accountDetailsPanel" layout="block" rendered="true">
+        <script>       
+        function apex_getAccountDetails_callback(jsonResponse){        
+            if(jsonResponse === null || jsonResponse === ''){
+                return;
+            }
+           
+            var account;
+            eval('account = ' + jsonResponse);
+            if(account !== null){
+                renderAccountDetailView(account);
+            }
+        }
+        apex_getAccountDetails_callback('{!JSONAccountDetails}');
+        </script>
+    </apex:outputPanel>    
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page id="pg" standardController="account" recordSetVar="accounts">
+  <script>
+  function callme(str){
+      alert(document.getElementById('pg:fr:tf').value);
+  }
+  </script>
+  
+  <apex:form id="fr">
+      <apex:inputField id="tf" value="{!account.name}"/>
+    <apex:commandButton action="{!save}" value="save" onclick="callme();"/>
+ 
+  </apex:form>
+ <apex:include pageName="MVC"/>    
+</apex:page>

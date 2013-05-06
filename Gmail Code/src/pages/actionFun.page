@@ -1,0 +1,9 @@
+<apex:page controller="actfun">
+
+<apex:form >
+   <apex:actionPoller action="{!callme}" interval="5" reRender="op"/>
+   <apex:outputPanel id="op">{!i}<br/>{!j}</apex:outputPanel>
+</apex:form>
+
+
+</apex:page>

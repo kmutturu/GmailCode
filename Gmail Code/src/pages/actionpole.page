@@ -1,0 +1,6 @@
+<apex:page controller="actionpol">    
+    <apex:form >
+        <apex:actionPoller action="{!call}" interval="5"/> 
+     </apex:form>
+  
+</apex:page>

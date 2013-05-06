@@ -1,0 +1,26 @@
+<apex:component controller="EnhancedMultiselectController" allowDML="true" >
+
+    <script type="text/javascript" src="{!$Resource.JQMultiSelect06}"></script>
+    <apex:stylesheet value="{!$Resource.JQMultiSelect06CSS}"/>
+      
+      <apex:attribute name="pageController" 
+          type="PageControllerBase" 
+          assignTo="{!pageController}" 
+          required="true" 
+          description="The controller for the page." />
+          
+    <apex:attribute name="fieldName" description="This is the field name" type="String" required="true" assignTo="{!fieldName}" />
+    <apex:attribute name="picklistEntries" description="Entries to override Salesforce defaults" type="String" required="false" assignTo="{!picklistEntries}" />
+ 
+    {!onLoad}
+    
+    <select multiple="multiple" name="MS{!fieldName}" style="width:150px" >
+	   	 <apex:repeat value="{!picklistValues}" var="v">  
+	          <apex:outputText escape="false" value="{!v.outputHTML}" />	      
+	    </apex:repeat>
+    </select>
+    
+    
+   <span id="S{!fieldName}"><apex:inputHidden value="{!myValueHolder}" /></span>
+
+</apex:component>
