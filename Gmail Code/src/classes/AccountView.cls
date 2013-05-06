@@ -2,7 +2,7 @@ global class  AccountView {
 
     public static Account  acc {get;set;}
     public static String staticActId;
-    
+    /*modification message*/
     public AccountView() {
     
     
